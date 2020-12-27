@@ -14,7 +14,7 @@ export default function ChiTietCumRap(props) {
             dispatch(await layThongTinLichChieuHeThongRapApiAction());
         }
         fetchData();
-    },[]);
+    },[maCumRap]);
     return (
         <>
             <ChiTietCumRapThongTinRap maCumRap = {maCumRap} maHeThongRap={maHeThongRap}/>

@@ -32,7 +32,7 @@ export default function ItemThongTinPhimMenu({phim, path}) {
                 <img className='mr-3' src={phim.hinhAnh} alt={phim.tenPhim} width={50} height={50} />
                 <div className='font-weight-bold'>
                     {phim.tenPhim}
-                    {/* {phim.maPhim ? <p><ThoiLuongPhim maPhim = {phim.maPhim}/> - 0 IMDb - 2D/Digital</p> : ''} */}
+                    {phim.maPhim ? <div><ThoiLuongPhim maPhim = {phim.maPhim}/> - 0 IMDb - 2D/Digital</div> : ''}
                 </div>
                 </div>
                 {

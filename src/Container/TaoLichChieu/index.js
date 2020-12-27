@@ -3,8 +3,10 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { layChiTietPhimApiAction, layThongTinCumRapTheoHeThongApiAction, layThongTinLichChieuHeThongRapApiAction, taoLichChieuAction } from '../../Redux/Action/QuanLyPhimAction';
 import moment from 'moment';
+import Swal from 'sweetalert2';
+import ThongLuonPhim from '../../Components/ThoiLuongPhim';
 
-let totalLength =0;
+let arrLichChieuTheoRap = [];
 export default function TaoLichChieu(props) {
     const [cumRapMenu,setCumRapMenu] = useState({maHeThongRap: '',disabled: true});
     const [rapMenu,setRapMenu] = useState({dsRap: [],disabled: true});
@@ -16,19 +18,18 @@ export default function TaoLichChieu(props) {
             giaVe: 0
         }
     );
-    const [error, setError] = useState("");
+    const [error, setError] = useState({});
     const [dsLichChieu, setDsLichChieu] = useState();
-    const [totalCount, setTotalCount] = useState();
+    const [showLichChieuTheoRap, setShowLichChieuTheoRap] = useState([]);
     const dispatch = useDispatch();
     useEffect(() => {
         for(let item of document.querySelectorAll('input[name]')){
             item.value = '';
         }
         document.querySelector('#heThongRap').value='';
-        // document.querySelector('[name=ngayChieuGioChieu]').value = '';
-        // document.querySelector('[name=giaVe]').value = '';
         setCumRapMenu({maHeThongRap: '',disabled: true});
         setRapMenu({dsRap: [],disabled: true});
+        setShowLichChieuTheoRap([]);
         setThongTinLichChieu(
             {
                 maPhim: props.phim.maPhim,
@@ -40,19 +41,16 @@ export default function TaoLichChieu(props) {
       }, [props.phim]);
     useEffect(() => {
         async function fetchData() {
-        //   dispatch(await layDanhSachPhimApiAction());
-        //   dispatch(await layThongTinHeThongRapApiAction());
           dispatch(await layThongTinLichChieuHeThongRapApiAction());
         }
         fetchData();
     }, []);
     useEffect(() => {
+        console.log(cumRapMenu);
         async function fetchData() {
-        //   dispatch(await layDanhSachPhimApiAction());
-        //   dispatch(await layThongTinHeThongRapApiAction());
           dispatch(await layThongTinCumRapTheoHeThongApiAction(cumRapMenu.maHeThongRap));
         }
-        fetchData();
+        if(cumRapMenu.maHeThongRap){fetchData();}
     }, [cumRapMenu]);
     useEffect(() => {
         async function fetchData() {
@@ -62,13 +60,13 @@ export default function TaoLichChieu(props) {
       }, [props.phim]);
     const { lichChieuHeThongRap } = useSelector(state => state.QuanLyPhimReducer) ;
     const { cumRap } = useSelector(state => state.QuanLyPhimReducer);
-    const { chiTietPhim } = useSelector((state) => state.QuanLyPhimReducer);
-    // console.log('lichChieuHeThongRap',lichChieuHeThongRap);
     const handleChange = (e) => {
         let {name , value, label} = e.target;
         setError({...error, [name]: ``});
         if(name === 'heThongRap'){
-            if(value === ''){
+            if(!value){
+                setShowLichChieuTheoRap([]);
+                arrLichChieuTheoRap=[];
                 setCumRapMenu({maHeThongRap: value,disabled: true});
                 setRapMenu({dsRap: value,disabled: true});
                 setError({...error, [name]: `${label} chưa được chọn`});
@@ -82,7 +80,9 @@ export default function TaoLichChieu(props) {
             }
         }
         else if(name === 'cumRap'){
-            if(value === ''){
+            if(!value){
+                setShowLichChieuTheoRap([]);
+                arrLichChieuTheoRap=[];
                 setRapMenu({dsRap: value,disabled: true});
                 setError({...error, [name]: `${label} chưa được chọn`});
                 setDsLichChieu('');
@@ -96,17 +96,18 @@ export default function TaoLichChieu(props) {
             }
         }
         else if(name === 'maRap'){
-            if(value === ''){
+            if(!value){
                 setError({...error, [name]: `${label} chưa được chọn`});
                 return;
             }else{
                 setThongTinLichChieu({...thongTinLichChieu, [name] : value});
                 setDsLichChieu({...dsLichChieu,maRap :value});
+                renderLichChieu(value);
                 return;
             }
         }
         else if(name === 'ngayChieuGioChieu'){
-            if(value === ''){
+            if(!value){
                 setError({...error, [name]: `${label} chưa được chọn`});
                 return;
             }else{
@@ -116,28 +117,25 @@ export default function TaoLichChieu(props) {
             }
            
         }else {
-            if(value === ''){
+            if(!value){
                 setError({...error, [name]: `${label} không được để trống`});
             }else{
                 setThongTinLichChieu({...thongTinLichChieu, [name] : value});
             }
         }
-        // console.log('thongTinLichChieu', thongTinLichChieu);
     }
-    const renderLichChieu = () => {
+    const renderLichChieu = (value) => {
+        arrLichChieuTheoRap=[];
         if(dsLichChieu?.maHeThongRap) {
             let  heThongRap = lichChieuHeThongRap?.find(item => item.maHeThongRap === dsLichChieu?.maHeThongRap);
             if(heThongRap !== -1){
-                // console.log('heThongRap',heThongRap);
                 let rap = heThongRap?.lstCumRap.find(item => item.maCumRap === dsLichChieu?.maCumRap);
-                // console.log('rap',rap);
-                if(dsLichChieu.maRap) {
-                    return rap?.danhSachPhim.map((itemPhim) => {
-                        return itemPhim?.lstLichChieuTheoPhim.map((item,index) => {
-                            if(item.maRap === dsLichChieu.maRap){
-                                totalLength += 1;
-                                return (
-                                    <tr key={index}>
+                if(value) {
+                    rap?.danhSachPhim.map((itemPhim) => {
+                        itemPhim?.lstLichChieuTheoPhim.map((item) => {
+                            if(item.maRap === value){
+                                arrLichChieuTheoRap.push(
+                                    <tr key={arrLichChieuTheoRap.length}>
                                         <td>{item.maLichChieu}</td>
                                         <td>{heThongRap.tenHeThongRap}</td>
                                         <td>{rap.tenCumRap}</td>
@@ -145,25 +143,26 @@ export default function TaoLichChieu(props) {
                                         <td>{itemPhim.tenPhim}</td>
                                         <td>{item.ngayChieuGioChieu}</td>
                                         <td>{item.giaVe}</td>
+                                        <td><ThongLuonPhim maPhim={itemPhim.maPhim}/></td>
                                     </tr>
-                                )
+                                );
                             }
                         })
                     });
-                }else{
-                    return ''
+                    setShowLichChieuTheoRap(arrLichChieuTheoRap.slice(0,5));
                 }
             }
-        }else {
-            return '';
-        }
-        
-            // let rap = rapMenu ? heThongRap.cumRapChieu.find(item => item.maCumRap === rap.)            
+        }     
     }
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(thongTinLichChieu);
+        if(!Object.keys(error).length){
+            Swal.fire("Thông báo","Vui lòng điền đầy đủ thông tin để tạo lịch chiếu","error")
+            return
+        }
         for(let item of Object.values(error)) {
-            if(item !==''){
+            if(item){
                 return
             }
         }
@@ -235,8 +234,14 @@ export default function TaoLichChieu(props) {
                         <th>Thời lượng</th>
                     </tr>
                 </thead>
-                <tbody className='dsLichChieuRap'>{renderLichChieu()}</tbody>
+                <tbody className='dsLichChieuRap'>{showLichChieuTheoRap}</tbody>
             </table>
+            <div className='text-center'>
+                <Pagination defaultCurrent={1} total={arrLichChieuTheoRap.length} pageSize={5} onChange={(current,showLessItems,defaultPageSize) =>{
+                    let showItems = showLessItems*current;
+                    setShowLichChieuTheoRap(arrLichChieuTheoRap.slice(showItems-showLessItems,showItems));
+                }}/>
+            </div>
         </div>
     )
 }

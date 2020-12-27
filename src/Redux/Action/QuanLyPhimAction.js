@@ -26,7 +26,9 @@ export const layDanhSachPhimApiAction = async () => {
         type: LAY_DANH_SACH_PHIM_API,
         data:result.data,
       });
+      setTimeout(() => {
       dispatch (hideLoading());
+      }, 1000);
     } catch (err) {
       console.log(err);
     }
@@ -44,7 +46,9 @@ export const layThongTinHeThongRapApiAction = async () => {
         type: LAY_THONG_TIN_HE_THONG_RAP_API,
         heThongRap: result.data,
       })
-      dispatch (hideLoading());
+      setTimeout(() => {
+        dispatch (hideLoading());
+        }, 1000);
     }catch(err) {
       console.log(err)
     }
@@ -64,7 +68,9 @@ export const layThongTinCumRapTheoHeThongApiAction = async (maHeThongRap) =>{
         dataCumRap: result.data,
         maHeThongRap: maHeThongRap,
       });
-      dispatch(hideLoading());
+      setTimeout(() => {
+        dispatch (hideLoading());
+        }, 1000);
     }catch(err){
       console.log(err);
     }
@@ -83,7 +89,9 @@ export const layThongTinLichChieuHeThongRapApiAction = async () => {
         type: LAY_THONG_TIN_LICH_CHIEU_HE_THONG_RAP_API,
         dataLichChieuHeThongRap: result.data,
       });
-      dispatch(hideLoading());
+      setTimeout(() => {
+        dispatch (hideLoading());
+        }, 1000);
     } catch(err){
       console.log(err);
     }
@@ -104,7 +112,9 @@ export const layChiTietPhimApiAction = async (maPhim) => {
         type: LAY_CHI_TIET_PHIM_API,
         chiTietPhim: result.data,
       });
-      dispatch(hideLoading());
+      setTimeout(() => {
+        dispatch (hideLoading());
+        }, 1000);
 
     } catch (err) {
       console.log(err);
@@ -126,7 +136,9 @@ export const layDanhSachPhongVeAction = async (maLichChieu) => {
         type: LAY_DANH_SACH_PHONG_VE_API,
         danhSachPhongVe: result.data,
       });
-      dispatch(hideLoading());
+      setTimeout(() => {
+        dispatch (hideLoading());
+        }, 1000);
 
     } catch (err) {
       console.log(err);
@@ -146,7 +158,9 @@ export const datVeAction =  (thongTinVe) => {
         data: thongTinVe,
         headers:{'Authorization': 'Bearer '+localStorage.getItem(ACCESSTOKEN)}
       });
-      dispatch(hideLoading());
+      setTimeout(() => {
+        dispatch (hideLoading());
+        }, 1000);
 
       dispatch(await layDanhSachPhongVeAction(thongTinVe.maLichChieu));
       dispatch (datVeThanhCong());

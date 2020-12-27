@@ -1,15 +1,13 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import ItemThongTinPhimMenu from '../../Components/ItemThongTinPhimMenu';
 import ItemThongTinRapChieuPhim from '../../Components/ItemThongTinRapChieuPhim';
 import MobiPillsMenuResponsive from '../../Components/ResponsiveMobiPillsMenu';
-import { displayLoading } from '../../Redux/Action/LoadingAction';
 
 export default function ChiTietCumRapMenu({maCumRap, maHeThongRap}) {
     const {lichChieuHeThongRap} = useSelector(state => state.QuanLyPhimReducer);
     const [toggle, setToggle] = useState(maCumRap);
-    const dispatch = useDispatch();
     const renderLichChieuHeThongRap = () => {
         let heThongRap = lichChieuHeThongRap.find(item => item.maHeThongRap === maHeThongRap);
         let index = heThongRap?.lstCumRap.findIndex(item1 => item1?.maCumRap === maCumRap);
@@ -21,22 +19,22 @@ export default function ChiTietCumRapMenu({maCumRap, maHeThongRap}) {
             let tenCumRap = rap ? rap.tenCumRap.split('-') : [];
             return (
                 index ===0  ? (
-                    <div key={index} className={`${menuActive}`}>
+                    <div key={index} className={`chi-tiet-cum-rap-menu-left ${menuActive}`}>
                     {
                         rap ? 
                         (
-                            <a className='d-flex' to={`/chitietcumrap/${maHeThongRap}/${rap?.maCumRap}`} onClick={()=>setToggle(rap.maCumRap)}>
+                            <a className='d-flex ' to={`/chitietcumrap/${maHeThongRap}/${rap?.maCumRap}`} onClick={()=>setToggle(rap.maCumRap)}>
                                 <ItemThongTinRapChieuPhim logo={heThongRap.logo} maCumRap={rap?.maCumRap} tenCumRapx={tenCumRap[0]} tenCumRap={tenCumRap[1]} maHeThongRap = {maHeThongRap}/>
                             </a>
                         ) : ''
                     }
                 </div>
                 ) :
-                <div key={index} className={`${menuActive}`} onClick={() => dispatch(displayLoading())}>
+                <div key={index} className={`chi-tiet-cum-rap-menu-left ${menuActive}`}>
                     {
                         rap ? 
                         (
-                            <NavLink className='d-flex' to={`/chitietcumrap/${maHeThongRap}/${rap?.maCumRap}`} onClick={()=>setToggle(rap.maCumRap)}>
+                            <NavLink className='d-flex ' to={`/chitietcumrap/${maHeThongRap}/${rap?.maCumRap}`} onClick={()=>setToggle(rap.maCumRap)}>
                                 <ItemThongTinRapChieuPhim logo={heThongRap.logo} maCumRap={rap?.maCumRap} tenCumRapx={tenCumRap[0]} tenCumRap={tenCumRap[1]} maHeThongRap = {maHeThongRap}/>
                             </NavLink>
                         ) : ''
@@ -73,8 +71,8 @@ export default function ChiTietCumRapMenu({maCumRap, maHeThongRap}) {
                 )] : '';
             if(index !== 0){
                 menuIndexX.push((
-                    <div key={index} onClick={() => dispatch(displayLoading())}>
-                        <NavLink to={`/chitietcumrap/${maHeThongRap}/${rap?.maCumRap}`} onClick={()=>setToggle(rap.maCumRap)}>
+                    <div key={index}>
+                        <NavLink to={`/chitietcumrap/${maHeThongRap}/${rap?.maCumRap}`}>
                             <ItemThongTinRapChieuPhim className='p-3' logo={heThongRap.logo} maCumRap={rap?.maCumRap} tenCumRapx={tenCumRap[0]} tenCumRap={tenCumRap[1]} maHeThongRap = {maHeThongRap}/>
                         </NavLink>
                     </div>

@@ -17,7 +17,6 @@ const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
 export default function AdminTemplate({Component,match,renderNamePage,propsRoute}) {
-    console.log(match);
     const [state, setState] = useState({
         collapsed: false,
     });

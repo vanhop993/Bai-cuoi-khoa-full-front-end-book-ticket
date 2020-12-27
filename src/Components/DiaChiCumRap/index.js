@@ -1,15 +1,7 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { layThongTinLichChieuHeThongRapApiAction } from '../../Redux/Action/QuanLyPhimAction';
+import React from 'react'
+import {  useSelector } from 'react-redux'
 
 export default function DiaChiCumRap(props) {
-    const dispatch = useDispatch();
-    useEffect(() => {
-        async function fetchData() {
-            dispatch(await layThongTinLichChieuHeThongRapApiAction());
-        }
-        fetchData();
-      }, []);
     const { lichChieuHeThongRap } = useSelector(state => state.QuanLyPhimReducer) ;
     const renderDiaChi = () => {
         let cumRap = lichChieuHeThongRap.find(item => item.maHeThongRap === props.maHeThongRap);

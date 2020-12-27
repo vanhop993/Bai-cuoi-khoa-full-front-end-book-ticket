@@ -85,7 +85,7 @@ export default function ChiTietPhimMenu(props) {
         )
     }               
     return (
-        <Element name='menuDatVe'>
+        <Element name='menuDatVe' className='mb-5'>
             <PillsMenu responsive="d-none d-md-flex my-5" menuLeft={renderLeftMenu()} menuRight={renderRightMenu()} colLeft={'col-2 col-lg-4 flex-column'} colRight={'col-10 col-lg-8  menu-he-thong-rap-scroll'} />
             {renderMobiPillsMenu()}
         </Element>
