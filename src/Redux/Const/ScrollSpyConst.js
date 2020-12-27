@@ -1,0 +1,1 @@
+export const SCROLL_SPY_TO_MENU = "SCROLL_SPY_TO_MENU";

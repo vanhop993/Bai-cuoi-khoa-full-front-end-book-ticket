@@ -1,0 +1,18 @@
+@mixin styleText($color,$fs,$fw,$lh) {
+    color: $color;
+    font-size: $fs;
+    font-weight: $fw;
+    line-height: $lh;
+}
+@mixin styleButton ($bg-color,$pd){
+    background-color: $bg-color;
+    padding:$pd;
+}
+@mixin resposive($screen) {
+    @if(map-has-key($map:$breakpoints, $key:$screen)){
+        $value: map-get($map:$breakpoints , $key:$screen );
+        @media screen and (max-width:$value){
+            @content;
+        }
+    }
+}

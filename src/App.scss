@@ -1,0 +1,42 @@
+//hellper
+@import './Scss/helper/mixin';
+@import './Scss/helper/variables';
+// base 
+@import './Scss/base/reset';
+@import './Scss/base/customizes';
+// component
+@import './Scss/components/styleScrollbar';
+// @import './Scss/components/button';
+// @import './Scss/components';
+// thư viện modal video
+@import 'node_modules/react-modal-video/scss/modal-video.scss';
+// Style for Container
+@import './Container/TrangChuCarousel/Style/Carousel.scss';
+@import './Container/Footer/Style/Footer.scss';
+@import './Container/ChiTietPhimThongTinPhim/Style/ChiTietPhim.scss';
+@import './Container/TrangChuDanhSachPhim/style/DanhSachPhim.scss';
+@import './Container/TrangChuMenuHeThongRap_Demo/Styles/HeThongRap_Demo.scss';
+@import './Container/TrangChuTinTuc/Styles/TinTuc.scss';
+@import './Container/TrangChuUngDung/Styles/UngDung.scss';
+@import './Container/ChiTietCumRapMenu/Styles/ChiTietCumRapMenu.scss';
+@import './Container/ChiTietPhongVe/Styles/DatVe.scss';
+@import './Container/Header/Styles/Header.scss';
+@import './Container/TaoLichChieu/Styles/TaoLichChieu.scss';
+// style for Component
+@import './Components/HeaderMenuTaiKhoan/Styles/HeaderMenuTaiKhoan.scss';
+@import './Components/RenderDiemCirCle/Style/RenderDiemCirCle.scss';
+@import './Components/ItemPhim/Styles/ItemPhim.scss';
+@import './Components/RenderStar/Styles/Star.scss';
+@import './Components/PillsMenu/Styles/PillMenu.scss';
+@import './Components/ResponsiveMobiPillsMenu/Style/ResponsiveMobiPillsMenu.scss';
+@import './Components/ItemThongTinPhimMenu/Styles/ItemThongTinPhimMenu.scss';
+@import './Components/ItemThongTinRapChieuPhim/Styles/ItemThongTinRapChieuPhim.scss';
+@import './Components/Loading/Loading.scss';
+
+@import './HOC/Styles/Modal.scss';
+
+@import './Scss/DangNhap/DangNhap.scss';
+
+
+
+

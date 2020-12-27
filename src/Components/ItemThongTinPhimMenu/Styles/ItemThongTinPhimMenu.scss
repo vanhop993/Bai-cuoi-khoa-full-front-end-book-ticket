@@ -1,0 +1,22 @@
+.thong-tin-phim-item{
+        &::after{
+                content : '';
+                display: block;
+                width: calc(100% - 40px);
+                border: 1px solid $color-gray-0;
+                position: absolute;
+                bottom: 0;
+                border-color:$color-while-1;
+        }
+        img{
+                border-radius: 5px;
+        }
+}
+.gioChieu{
+        font-size: $fs-1;
+        padding: 8px;
+        background-color: $color-gray-1;
+        border-radius: 7px;
+        color: $color-gray-0;
+        border: 1px solid $color-while-0;
+}

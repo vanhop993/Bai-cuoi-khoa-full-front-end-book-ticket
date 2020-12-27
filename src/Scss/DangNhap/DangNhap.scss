@@ -1,0 +1,24 @@
+.dang-nhap{
+    background: url('./home-bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    .form-dang-nhap {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: $color-black-6;
+        border-radius: 5px;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 450px;
+        padding: 60px 68px 40px;
+    }
+    .btn-submit{
+        background-color: $color-yellow-1;
+    }
+}

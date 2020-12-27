@@ -1,0 +1,76 @@
+.card {
+    position: relative;
+    transition: all 0.5s;
+    .btn-play-center{
+        opacity: 0;
+        color: $color-yellow-1;
+        font-size: 3rem;
+        background: $color-tran;
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transition: all 0.5s;
+        transform: translate(-50%, -50%);
+        &.btn-play-center {
+          border: 2px solid;
+          border-radius: 50%;
+        }
+        &:hover {
+          color: $color-while-0;
+          cursor: pointer;
+        }
+    }
+    &:hover {
+      .card-body {
+        opacity: 0;
+      }
+      .btn-play-center,
+      .btn-card,
+      .btn {
+        opacity: 1;
+      }
+    }
+    .card-title{
+        height: 42px;
+        max-height: 42px;
+        @include styleText($color-black-1,$fs-15,$fw-500,$lh-0);
+        margin-bottom: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+    .card-img {
+      background: $color-while-0;
+      border-radius: 0.25rem;
+    }
+    .btn-card {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background:$color-black-0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 0.25rem;
+      opacity: 0;
+      transition: all 0.5s;
+    }
+    .btn-style {
+      opacity: 0;
+      color: $color-while-0;
+      background: $color-yellow-1;
+      width: 90%;
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: all 0.5s;
+      &:hover {
+        color: $color-yellow-1;
+        border: 1px solid $color-yellow-1;
+        background: $color-while-0;
+      }
+    }
+}

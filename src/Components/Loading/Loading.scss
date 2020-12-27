@@ -1,0 +1,17 @@
+.bgLoading {
+    background-color: $color-while-0;
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: Hide 2.5s;
+}
+@keyframes Hide {
+    from {opacity: 1;};
+    to {opacity:0;};
+  }

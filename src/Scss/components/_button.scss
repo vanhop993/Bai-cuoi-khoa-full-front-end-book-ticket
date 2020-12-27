@@ -1,0 +1,135 @@
+.btn-style-1{
+    position: relative;
+    white-space: nowrap;
+    border: none;
+    @include styleButton($color-tran,10px);
+    @include styleText($color-blue-1,$fs-15 + 1,$fw-normal,$lh-0);
+    &:focus{
+        position: relative;
+        z-index: 100;
+        border:none;
+        outline: 1px solid $color-blue-1;
+        outline-offset: 5px;
+        color:$color-black-1;
+    }
+}
+.btn-style-2{
+    border:none;
+    width: 100%;
+    text-decoration: none;
+    @include styleButton($color-tran,25px);
+    @include styleText($color-blue-1,$fs-15 + 1,$fw-normal,$lh-0);
+    cursor: pointer;
+    &:focus{
+        border:none;
+        outline: 1px solid $color-blue-1;
+        color:$color-black-1;
+        box-shadow: none;
+        text-decoration: none;
+    }
+    &:hover{
+        text-decoration: none;
+    }
+}
+//responsive cho .btn-style-2 carosel
+@include resposive('medium'){
+    .carousel-main{
+        .carousel-inner{
+            .btn-style-2{
+                padding: 0;
+            }
+        }
+    }
+}
+//end responsive cho .btn-style-2 carosel
+.btn-style-3{
+    @include styleText($color-while-0,$fs-15 + 1,$fw-normal,$lh-0);
+    @include styleButton($color-blue-1,$pd-15 $pd-20);
+    border: 1px solid $color-blue-1;
+    transition: all .5s;
+    &:hover{
+        @include styleButton($color-while-0,$pd-15 $pd-20);   
+    }
+}
+//responsive cho .btn-style-3 carosel
+@include resposive('medium'){
+    .carousel-main{
+        .carousel-inner{
+            .btn-style-3{
+                width: 100%;
+            }
+        }
+    }
+}
+//end responsive cho .btn-style-3 carosel
+.btn-style-3-red{
+    @include styleText($color-while-0,$fs-15 + 1,$fw-normal,$lh-0);
+    @include styleButton($color-red-0,$pd-15 $pd-20);
+    border: 1px solid $color-red-0;
+    transition: all .5s;
+    display: inline-block;
+    width: 270px;
+    &:hover{
+        @include styleButton($color-while-0,$pd-15 $pd-20);   
+        @include styleText($color-red-0,$fs-15 + 1,$fw-normal,$lh-0);
+    }
+    &:focus{
+        position: relative;
+        z-index: 100;
+        border:none;
+        outline: 1px solid $color-blue-1;
+        outline-offset: 5px;
+    }
+}
+.btn-style-4{
+    @include styleText($color-blue-1,$fs-15 + 1,$fw-normal,$lh-0);
+    @include styleButton($color-while-0,$pd-15);
+    border: 1px solid $color-blue-1;
+    transition: all .5s;
+    &:hover{
+        @include styleText($color-black-1,$fs-15 + 1,$fw-normal,$lh-0);
+        border: 1px solid $color-black-1; 
+    }
+}
+.btn-style-4-noborder{
+    @include styleText($color-blue-1,$fs-15 + 1,$fw-normal,$lh-0);
+    @include styleButton($color-while-0,$pd-15);
+    border: none;
+    transition: all .5s;
+    &:hover{
+        @include styleText($color-black-1,$fs-15 + 1,$fw-normal,$lh-0);
+        border: none; 
+    }
+    &:focus{
+        position: relative;
+        z-index: 100;
+        border:none;
+        outline: 1px solid $color-blue-1;
+        outline-offset: 5px;
+    }
+}
+.btn-style-5{
+    @include styleText($color-blue-1,$fs-15 + 1,$fw-normal,$lh-0);
+    @include styleButton($color-while-0,$pd-15);
+    border: none;
+    transition: all .5s;
+    &:hover{
+        @include styleText($color-black-1,$fs-15 + 1,$fw-normal,$lh-0);
+        border: none; 
+    }
+}
+//button cho img phan intro
+.btn-style-6{
+    &:hover{
+        img{
+            transform: scale(1.1);
+        }
+    }
+}
+.btn-style-7{
+    transition: all .2s;
+    &:hover{
+        background-color: $color-while-0;
+        color: $color-blue-1 !important;
+    }
+}

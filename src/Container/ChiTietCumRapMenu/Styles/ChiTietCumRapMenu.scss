@@ -1,0 +1,46 @@
+.chi-tiet-cum-rap-border{
+    border: 1px solid $color-while-1;
+    background-color: $color-while-0;
+    z-index: 50;
+    .chi-tiet-cum-rap-menu-left{
+        opacity: 0.5;
+        padding: 20px;
+        height: 90px;
+        &::after{
+            content : '';
+            display: block;
+            width: calc(100% - 40px);
+            border: 1px solid $color-gray-0;
+            position: absolute;
+            bottom: 0;
+            border-color: $color-while-1;
+        }
+    }
+    .chi-tiet-cum-rap-menu-right{
+        &::after{
+            content : '';
+            display: block;
+            width: calc(100% - 40px);
+            border: 1px solid $color-gray-0;
+            position: absolute;
+            bottom: 0;
+            border-color: $color-while-1;
+        }
+    }
+    .chi-tiet-cum-rap-menu-left-mobile {
+        padding: 20px;
+        height: 90px;
+        &::after{
+            content : '';
+            display: block;
+            width: calc(100% - 40px);
+            border: 1px solid $color-gray-0;
+            position: absolute;
+            bottom: 0;
+            border-color:$color-while-1;
+        }
+    }
+    .chi-tiet-cum-rap-menu-left.menuActive {
+        opacity: 1;
+    }
+}

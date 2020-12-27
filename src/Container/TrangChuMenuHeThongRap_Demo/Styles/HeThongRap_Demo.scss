@@ -1,0 +1,31 @@
+.border-menu-he-thong-rap-item{
+    border: 1px solid $color-while-1;
+    background-color: $color-while-0;
+    z-index: 50;
+    .menu-he-thong-rap-item{
+        padding: 20px;
+        height: 90px;
+        img{
+            width: 50px;
+            height: 50px;
+        }
+    }
+    .gach-duoi-menu-he-thong-rap-item::after{
+        content : '';
+        display: block;
+        width: calc(100% - 40px);
+        border: 1px solid $color-gray-0;
+        position: absolute;
+        bottom: 0;
+        border-color: $color-while-1;
+    }
+    .gach-duoi-menu-he-thong-rap-item.active{
+        background-color: $color-tran;
+        color: $color-black-1;
+        opacity: 1;
+    }
+    
+    .gach-duoi-menu-he-thong-rap-item{
+        opacity: 0.5;
+    }
+}

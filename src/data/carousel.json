@@ -1,0 +1,7 @@
+[
+    {"tenPhim":"Avengers","subtitle":"End-game","image":"./img/carousel/end_game.jpg","trailer":"https://www.youtube.com/embed/mx9TjGVW59Q"},
+    {"tenPhim":"Extraction","subtitle":"Tyler Rake: Nhiệm Vụ Giải Cứu-Extraction (2020)","image":"./img/carousel/extraction.jpg","trailer":"https://www.youtube.com/embed/OkIimo_-MrM"},
+    {"tenPhim":"Bloodshot","subtitle":"Siêu anh hùng Bloodshot","image":"./img/carousel/bloodshot.jpg","trailer":"https://www.youtube.com/embed/tOu8WmOWqIA"},
+    {"tenPhim":"Nhím Sonic","subtitle":"Sonic the Hedgehog (2020)","image":"./img/carousel/sonic.jpg","trailer":"https://www.youtube.com/embed/Qb7lSjHKos8"},
+    {"tenPhim":"Spider-man","subtitle":"Far From Home Trailer (2019)","image":"./img/carousel/spiderman.jpg","trailer":"https://www.youtube.com/embed/Nt9L1jCKGnE"}
+]

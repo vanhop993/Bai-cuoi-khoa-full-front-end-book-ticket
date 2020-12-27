@@ -1,0 +1,55 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  position: relative;
+  margin:0;
+  padding: 0;
+}
+
+body{
+  overflow-x: hidden;
+}
+
+html,body{
+    font-family: 'Roboto', sans-serif;
+    @include styleText($color-black-0,$fs-normal,$fw-normal,$lh-0);
+}
+
+.z-index100{
+  z-index: 100;
+}
+
+.text-shadow{
+  text-shadow: 3px 3px 4px black;
+}
+
+.w-fit-content{
+  width: fit-content;
+}
+
+.poiter{
+  cursor: pointer;
+}
+
+.bg-white{
+  background-color: white;
+}
+
+.text-menu-trang-chu-item {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.show-hide-loading{
+  opacity: 1;
+  animation: Show 3s ;
+}
+@keyframes Show {
+  0% {opacity: 0;};
+  50% {opacity: 0;};
+  100% {opacity:1;}
+}

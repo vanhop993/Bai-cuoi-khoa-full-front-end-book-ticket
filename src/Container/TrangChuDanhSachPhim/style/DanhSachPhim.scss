@@ -1,0 +1,25 @@
+.danhSachPhimBackGround{
+    background-color: $color-while-0;
+    .danhSachPhimTagA{
+        color: $color-black-1;
+        background: $color-tran;
+        font-size: $fs-1;
+        padding: 20px;
+        transition: all 0.5s;
+        &:hover {
+          color: $color-black-1;
+          transform: scale(1.1);
+        }
+        &.active {
+          color: $color-yellow-1;
+        }
+    }
+    .danhSachPhimTagLi{
+      background: $color-while-0;
+      display: contents;
+    }
+    .danhSachPhimTagUl{
+      justify-content: center;
+    }
+}
+

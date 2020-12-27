@@ -1,0 +1,36 @@
+
+.userLogin {
+    position: relative;
+    color: $color-black-1;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 2s;
+    line-height: normal;
+    img{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
+    .logout{
+        z-index: 100;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: $color-while-0;
+        width: 100%;
+        padding:10px;
+        transition: all 2s;
+        text-align: center;
+        .link-logout{
+            z-index: 10;
+            display: block;
+            padding: 10px 0; 
+            color: $color-black-1;
+            transition: all 0.3s;
+            &:hover{
+                color: $color-yellow-1;
+                transform: scale(1.1);
+            }
+        }
+    } 
+}

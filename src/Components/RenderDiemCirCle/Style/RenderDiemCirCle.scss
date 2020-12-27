@@ -1,0 +1,65 @@
+.c100{
+    *{
+        box-sizing: content-box;
+    }
+    position: relative;
+    font-size: 126px;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    margin: auto;
+    background-color: $color-black-5;
+    .circleBorder {
+        width: 111px;
+        height: 111px;
+        background: 0 0;
+        border: 7.5px solid $color-black-2;
+        border-radius: 50%;
+        position: absolute;
+    }
+    .circleBorder {
+        width: 111px;
+        height: 111px;
+        background: 0 0;
+        border: 7.5px solid $color-black-3;
+        border-radius: 50%;
+        position: absolute;
+    } 
+    span {
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        line-height: 2.4em;
+        font-size: .42em;
+        color: $color-while-0;
+        display: block;
+        text-align: center;
+        white-space: nowrap;
+        transition-property: all;
+        transition-duration: .2s;
+        transition-timing-function: ease-out;
+    }
+    .fill {
+        position: absolute;
+        border: .06em solid $color-green-1;
+        z-index: 1;
+        width: .88em;
+        height: .88em;
+        border-radius: 50%;
+        clip: rect(0,.5em,1em,0);
+        transform: rotate(0);
+        transform: rotate(180deg);
+    }
+    .bar {
+        position: absolute;
+        z-index: 1;
+        width: .88em;
+        height: .88em;
+        border-radius: 50%;
+        clip: rect(0,.5em,1em,0);
+        transform: rotate(0);
+        transform: rotate(180deg);
+    }
+}
