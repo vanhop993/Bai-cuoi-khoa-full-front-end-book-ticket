@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ModalBoot({title, Component}) {
+export default function ModalBoot({ title, Component }) {
   return (
     <div
       className="modal fade"
@@ -26,7 +26,6 @@ export default function ModalBoot({title, Component}) {
           <div className="modal-body">
             <div className="container-fluid">
               {Component}
-              {/* {<Component />} */}
             </div>
           </div>
           {/* <div className="modal-footer">

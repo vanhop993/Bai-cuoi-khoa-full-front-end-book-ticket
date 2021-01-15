@@ -1,0 +1,11 @@
+.gach-duoi-items-chi-tiet-phim-menu::after{
+    content : '';
+    display: block;
+    width: calc(100% - 40px);
+    border: 1px solid $color-gray-0;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-color: $color-while-1;
+}

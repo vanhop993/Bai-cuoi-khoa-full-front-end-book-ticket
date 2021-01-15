@@ -18,12 +18,19 @@
 @import './Container/TrangChuMenuHeThongRap_Demo/Styles/HeThongRap_Demo.scss';
 @import './Container/TrangChuTinTuc/Styles/TinTuc.scss';
 @import './Container/TrangChuUngDung/Styles/UngDung.scss';
-@import './Container/ChiTietCumRapMenu/Styles/ChiTietCumRapMenu.scss';
+@import './Container/ChiTietCumRapDanhGia/ChiTietCumRapMenu/Styles/ChiTietCumRapMenu.scss';
+@import './Container/ChiTietCumRapDanhGia/ThongTinRap/Styles/ThongTinRap.scss';
 @import './Container/ChiTietPhongVe/Styles/DatVe.scss';
 @import './Container/Header/Styles/Header.scss';
 @import './Container/TaoLichChieu/Styles/TaoLichChieu.scss';
+@import './Container/ChiTietPhimDanhGia/ThongTin/Styles/ThongTin.scss';
+@import './Container/ChiTietPhimDanhGia/DanhGia/Styles/DanhGia.scss';
+@import './Container/TrangChuMenu/Styles/TrangChuMenu.scss';
+@import './Container/ChiTietCumRapDanhGia/ChiTietCumRapMenu/Styles/ChiTietCumRapMenu.scss';
+@import './Container/AdminTemplate/Styles/AdminTemplate.scss';
 // style for Component
 @import './Components/HeaderMenuTaiKhoan/Styles/HeaderMenuTaiKhoan.scss';
+@import './Components/Owl-Carousel/Styles/OwlCarousel.scss';
 @import './Components/RenderDiemCirCle/Style/RenderDiemCirCle.scss';
 @import './Components/ItemPhim/Styles/ItemPhim.scss';
 @import './Components/RenderStar/Styles/Star.scss';
@@ -32,6 +39,11 @@
 @import './Components/ItemThongTinPhimMenu/Styles/ItemThongTinPhimMenu.scss';
 @import './Components/ItemThongTinRapChieuPhim/Styles/ItemThongTinRapChieuPhim.scss';
 @import './Components/Loading/Loading.scss';
+@import './Components/MenuNavTabs/Styles/MenuNavTabs.scss';
+@import './Components/DanhGiaPhimVsComment/Styles/DanhGiaPhimVsComment.scss';
+@import './Components/TinhThuNgay/Styles/TinhThuNgay.scss';
+@import './Components/ChamDiemBangStar/Styles/ChamDiemBangStar.scss';
+@import './Components/DanhGiaCumRapVsComment/Styles/DanhGiaCumRapVsComment.scss';
 
 @import './HOC/Styles/Modal.scss';
 

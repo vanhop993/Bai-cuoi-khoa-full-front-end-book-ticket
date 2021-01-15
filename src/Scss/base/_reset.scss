@@ -16,8 +16,8 @@ html,body{
     @include styleText($color-black-0,$fs-normal,$fw-normal,$lh-0);
 }
 
-.z-index100{
-  z-index: 100;
+.z-index20{
+  z-index: 20;
 }
 
 .text-shadow{
@@ -43,13 +43,16 @@ html,body{
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
-
-.show-hide-loading{
-  opacity: 1;
-  animation: Show 3s ;
+.borderRadius-10{
+  border-radius: 10px;
 }
+
+// .show-hide-loading{
+//   opacity: 0;
+//   animation: Show 0.5s forwards;
+// }
+
 @keyframes Show {
   0% {opacity: 0;};
-  50% {opacity: 0;};
   100% {opacity:1;}
 }

@@ -1,24 +1,25 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
-import ChiTietCumRapMenu from '../Container/ChiTietCumRapMenu';
+import ChiTietCunRapDanhGia from '../Container/ChiTietCumRapDanhGia';
 import ChiTietCumRapThongTinRap from '../Container/ChiTietCumRapThongTinRap';
-import { displayLoading } from '../Redux/Action/LoadingAction';
+import { displayLoading, hideLoading } from '../Redux/Action/LoadingAction';
 import { layThongTinLichChieuHeThongRapApiAction } from '../Redux/Action/QuanLyPhimAction';
 
 export default function ChiTietCumRap(props) {
     let maCumRap = props.match.params.macumrap;
     let maHeThongRap = props.match.params.mahethongrap;
     const dispatch = useDispatch();
-    useEffect(async()=>{ 
+    useEffect(() => {
+        dispatch(displayLoading());
         async function fetchData() {
             dispatch(await layThongTinLichChieuHeThongRapApiAction());
         }
         fetchData();
-    },[maCumRap]);
+    }, []);
     return (
         <>
             <ChiTietCumRapThongTinRap maCumRap = {maCumRap} maHeThongRap={maHeThongRap}/>
-            <ChiTietCumRapMenu maCumRap = {maCumRap} maHeThongRap={maHeThongRap} />
+            <ChiTietCunRapDanhGia maCumRap = {maCumRap} maHeThongRap={maHeThongRap} />
         </>
     )
 }

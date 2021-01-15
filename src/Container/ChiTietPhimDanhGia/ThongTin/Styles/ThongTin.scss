@@ -1,0 +1,11 @@
+.thongTin {
+    td{
+        padding: 10px;
+    }
+    .moTaPhim {
+        @include styleText($color-black-1,$fs-normal,$fw-normal,$lh-0)
+    }
+    .trailerDanhGia{
+        height: 60vh;
+    }
+}

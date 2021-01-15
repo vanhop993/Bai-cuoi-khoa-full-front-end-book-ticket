@@ -1,0 +1,30 @@
+.thuNgayContainer{
+    display: inline-flex;
+    width: 200%;
+    background-color: $color-while-0;
+    color: $color-black-0;
+    outline: none;
+    .thuNgayItem{
+        cursor: pointer;
+        width: calc(100% / 7)!important;
+        height: 85px;
+        padding: 20px 0;
+        position: relative;
+        &:focus{
+            box-shadow: none;
+        }
+        &::after{
+            content: '';
+            background-color:$color-while-1;
+            display: block;
+            width: 1px;
+            height:calc(100% - 40px);
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+    .active {
+        color: red;
+    }
+}

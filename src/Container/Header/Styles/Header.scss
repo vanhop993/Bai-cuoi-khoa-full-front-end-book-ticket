@@ -9,9 +9,6 @@
         justify-content: space-between;
         z-index: 101;
         box-shadow: 0px 1px 5px $color-gray-0;
-        @include resposive ("medium") {
-            position: relative;
-        }
         .nav-logo{
             color: $color-black-1;
             display: flex;
@@ -28,15 +25,16 @@
         .nav-bars{
             display: none;
             color: $color-black-1;
+            padding-right: 16px;
             @include resposive ("medium")  {
-            display: block;
-            position: absolute;
-            top: 0;
-            right: 0;
-            transform: translate(-100%, 75%);
-            font-size: $fs-1;
-            cursor: pointer;
-            color: $color-black-1;
+                display: block;
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translate(0%, -50%);
+                font-size: $fs-2 + 0.5;
+                cursor: pointer;
+                color: $color-black-1;
             }
         }
         .nav-menu{

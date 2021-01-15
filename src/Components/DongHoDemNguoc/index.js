@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import Swal from 'sweetalert2/dist/sweetalert2.js';
-import 'sweetalert2/src/sweetalert2.scss';
+import React from "react";
+import Swal from "sweetalert2/dist/sweetalert2.js";
+import "sweetalert2/src/sweetalert2.scss";
 
 export default class DongHoDemNguoc extends React.Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = { time: {}, seconds: 300 };
     this.startTimer = this.startTimer.bind(this);
     this.countDown = this.countDown.bind(this);
   }
 
-  secondsToTime(secs){
+  secondsToTime(secs) {
     let hours = Math.floor(secs / (60 * 60));
 
     let divisor_for_minutes = secs % (60 * 60);
@@ -20,9 +20,9 @@ export default class DongHoDemNguoc extends React.Component {
     let seconds = Math.ceil(divisor_for_seconds);
 
     let obj = {
-      "h": hours,
-      "m": minutes,
-      "s": seconds
+      h: hours,
+      m: minutes,
+      s: seconds,
     };
     return obj;
   }
@@ -44,12 +44,12 @@ export default class DongHoDemNguoc extends React.Component {
       time: this.secondsToTime(seconds),
       seconds: seconds,
     });
-    
     // Check if we're at zero.
-    if (seconds == 0) { 
+    if (seconds === 0) {
       clearInterval(this.timer);
       Swal.fire({
-        html: '<div>Đã hết thời gian giữ ghế. Vui lòng thực hiện đơn hàng trong thời hạn 5 phút. <a class="text-danger" href="">Đặt vé lại</a></div>',
+        html:
+          '<div>Đã hết thời gian giữ ghế. Vui lòng thực hiện đơn hàng trong thời hạn 5 phút. <a class="text-danger" href="">Đặt vé lại</a></div>',
         allowOutsideClick: false,
         showConfirmButton: false,
         width: 800,
@@ -58,9 +58,19 @@ export default class DongHoDemNguoc extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <>
-        {this.state.time.m > 9 ? <>{this.state.time.m}</> : <>0{this.state.time.m}</>}:{this.state.time.s > 9 ? <>{this.state.time.s}</> : <>0{this.state.time.s}</>}
+        {this.state.time?.m > 9 ? (
+          <>{this.state.time.m}</>
+        ) : (
+          <>0{this.state.time.m}</>
+        )}
+        :
+        {this.state.time.s > 9 ? (
+          <>{this.state.time.s}</>
+        ) : (
+          <>0{this.state.time.s}</>
+        )}
       </>
     );
   }

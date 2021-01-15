@@ -1,0 +1,23 @@
+.owl-theme .owl-nav{
+    font-size: 4rem;
+    display: flex;
+    justify-content: space-between;
+    width: 110%;
+    position: absolute;
+    top: 48%;
+    left: -5%;
+    transform: translateY(-50%);
+    z-index: -1;
+    margin-top: 0 !important;
+    .owl-prev,.owl-next{
+        background-color: none;
+        outline: none;
+        &:hover{
+            background-color: transparent !important;
+            color: $color-yellow-1!important;
+        }
+        @include resposive('large'){
+            display: none !important;
+        }
+    }
+}

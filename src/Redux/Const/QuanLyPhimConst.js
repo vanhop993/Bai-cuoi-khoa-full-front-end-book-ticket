@@ -13,3 +13,4 @@ export const DELETE_PHIM = "DELETE_PHIM";
 // local
 export const DANG_DAT_GHE = 'DANG_DAT_GHE';
 export const DAT_VE_THANH_CONG = 'DAT_VE_THANH_CONG';
+export const COMMENT_DANH_GIA = "COMMENT_DANH_GIA"; 

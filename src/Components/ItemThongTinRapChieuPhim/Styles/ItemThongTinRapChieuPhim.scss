@@ -3,9 +3,16 @@
     &::after{
             content : '';
             display: block;
+            border: 1px solid $color-while-1;
             width: calc(100% - 40px);
+            height: 1px;
             position: absolute;
             bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            @include resposive('medium'){
+                width: calc(100%);  
+            }
     }
     img{
             border-radius: 5px;

@@ -1,59 +1,72 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { themPhimUpLoadHinh } from '../../Redux/Action/QuanLyPhimAction';
-import moment from 'moment';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { themPhimUpLoadHinh } from "../../Redux/Action/QuanLyPhimAction";
+import moment from "moment";
+import FormValidateQLPhim from "../../Container/QuanLyPhimFormValidate";
+import Swall from "sweetalert2";
 
 export default function ThemPhim() {
-    const [value, setValue] = useState({
-        maPhim: 0,
-        tenPhim: "",
-        biDanh: "",
-        trailer: "",
-        hinhAnh: {},
-        moTa: "",
-        maNhom: "GP01",
-        ngayKhoiChieu: "",
-        danhGia: 0
-      });
-    const [error,setError] = useState();
-    const dispatch = useDispatch();
-    const handleChange = (e) => {
-        setError('');
-        e.target.name === 'hinhAnh' ? setValue({...value,[e.target.name]: e.target.files[0]}) : setValue({...value,[e.target.name]: e.target.value});
-        if(e.target.name === 'tenPhim'){
-            setValue({...value,tenPhim: e.target.value})
-        }
-        if(e.target.name === 'ngayKhoiChieu'){
-            setValue({...value,[e.target.name]: moment(e.target.value).format('DD-MM-yyyy')});
-        }
+  // const [value, setValue] = useState({
+  //     maPhim: 0,
+  //     tenPhim: "",
+  //     biDanh: "",
+  //     trailer: "",
+  //     hinhAnh: {},
+  //     moTa: "",
+  //     maNhom: "GP01",
+  //     ngayKhoiChieu: "",
+  //     danhGia: 0
+  //   });
+  // const [error,setError] = useState();
+  const [showError, setShowError] = useState("");
+  const dispatch = useDispatch();
+  // const handleChange = (e) => {
+  //     setError('');
+  //     e.target.name === 'hinhAnh' ? setValue({...value,[e.target.name]: e.target.files[0]}) : setValue({...value,[e.target.name]: e.target.value});
+  //     if(e.target.name === 'tenPhim'){
+  //         setValue({...value,tenPhim: e.target.value})
+  //     }
+  //     if(e.target.name === 'ngayKhoiChieu'){
+  //         setValue({...value,[e.target.name]: moment(e.target.value).format('DD-MM-yyyy')});
+  //     }
+  // }
+  const handleThemPhim = (value, error) => {
+    console.log(error);
+    // e.preventDefault();
+    const formData = new FormData();
+    value.biDanh = value.tenPhim.replace(" ", "-");
+    for (let item of Object.values(value)) {
+      if (item === "") {
+        setShowError("Vui lòng nhập đầy đủ tất cả các trường!!");
+        return;
+      }
     }
-    const handleThemPhim = (e) => {
-        e.preventDefault();
-        const formData = new FormData;
-        console.log(value);
-        value.biDanh = value.tenPhim.replace(' ','-');
-        for(let item of Object.values(value)){
-            if(item === ''){
-                setError('Vui lòng nhập đầy đủ tất cả các trường!!')
-                return;
-            }
+    // if(!Object.values(error).length){
+    //   w
+    // }
+    // for (let item of Object.values(error)) {
+    //   if (!item) {
+    //     setShowError(item);
+    //     return;
+    //   }
+    // }
+    for (let key in value) {
+      if (key === "hinhAnh") {
+        if (!value[key].name) {
+          //   setError("Vui lòng chọn file upload!!");
+          return;
         }
-        for(let key in value){
-            if(key === 'hinhAnh'){
-                if(!value[key].name){
-                    setError('Vui lòng chọn file upload!!')
-                    return
-                }
-            }
-            formData.append(key, value[key]);
-        }
-        // formData.append('image', hinhUpload , hinhUpload.name);
-        dispatch(themPhimUpLoadHinh(formData));
+      }
+      formData.append(key, value[key]);
     }
-    return (
-        <div>
-            <form>
-                <div className='text-center text-danger'>{error}</div>
+    // formData.append('image', hinhUpload , hinhUpload.name);
+    dispatch(themPhimUpLoadHinh(formData));
+  };
+  return (
+    <div>
+      <div className="text-center text-danger">{showError}</div>
+      <FormValidateQLPhim handleSubmit={handleThemPhim} />
+      {/* <form>
                 <div className="row">
                     <div className="col-6">
                         <div className="form-group">
@@ -97,7 +110,7 @@ export default function ThemPhim() {
                         <button className='btn btn-danger mx-2' >Xóa tất cả</button>
                     </div>
                 </div>
-            </form>
-        </div>
-    )
+            </form> */}
+    </div>
+  );
 }

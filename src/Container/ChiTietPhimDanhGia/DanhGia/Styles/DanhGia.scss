@@ -1,0 +1,39 @@
+.danhGia{
+    color: $color-black-1;
+    border-radius: 10px;
+    cursor: pointer;
+    // .ratingShow{
+    //     font-size: 1.5rem;
+    // }
+    // .commentShow{
+    //     overflow-wrap: break-word;
+    // }
+    // .likeShow{
+    //     .likeIcon{
+    //         font-size: 1.5rem;
+    //     }
+    //     .soLike{
+    //         font-size: 1.2rem;
+    //     }
+    // }
+}
+.commentContent{
+    color: $color-black-1;
+    border-radius: 10px;
+    .ratingShow{
+        font-size: 1.5rem;
+    }
+    .commentShow{
+        overflow-wrap: break-word;
+    }
+    .likeShow{
+        .likeIcon{
+            display: contents;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .soLike{
+            font-size: 1.2rem;
+        }
+    }
+}

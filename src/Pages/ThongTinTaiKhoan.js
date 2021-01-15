@@ -11,6 +11,7 @@ export default function ThongTinTaiKhoan() {
     let thongTinTaiKhoanLocalstore = JSON.parse(localStorage.getItem('USER_LOGIN'));
     const dispatch = useDispatch();
     useEffect(() => {
+        dispatch(displayLoading());
         let taiKhoan = {
             "taiKhoan": thongTinTaiKhoanLocalstore.taiKhoan,
           }
@@ -22,8 +23,6 @@ export default function ThongTinTaiKhoan() {
       }, []);
     const  {thongTinTaiKhoan}  = useSelector(state => state.QuanLyNguoiDungReducer);
     const { lichChieuHeThongRap } = useSelector(state => state.QuanLyPhimReducer) ;
-    // console.log('thongTinTaiKhoan',thongTinTaiKhoan);
-    // console.log('lichChieuHeThongRap',lichChieuHeThongRap);
     useEffect(() => {
         return () => {
           dispatch(displayLoading())
@@ -36,9 +35,6 @@ export default function ThongTinTaiKhoan() {
             let itemCumRapDatVe = itemHeThongRapDatVe.lstCumRap.find(item1 => item1.tenCumRap.trim() === item.danhSachGhe[0].tenHeThongRap.trim());
             let itemPhimDatVe = itemCumRapDatVe?.danhSachPhim.find(item1 => item1.tenPhim === item.tenPhim);
             let tenCumRap = itemCumRapDatVe.tenCumRap.split('-');
-            // console.log('itemHeThongRapDatVe',itemHeThongRapDatVe);
-            // console.log('itemCumRapDatVe',itemCumRapDatVe);
-            // console.log('itemPhimDatVe',itemPhimDatVe);
             if(itemPhimDatVe){
                 return (
                     <div className='my-2 d-flex' key={index}>

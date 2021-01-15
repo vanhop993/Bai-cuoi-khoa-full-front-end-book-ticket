@@ -1,3 +1,19 @@
 .mobiPillMenuResponsive{
     background-color: $color-while-0;
+    overflow-x: auto; 
+    border-bottom: 1px solid $color-black-4;
+    .gach-duoi-items-pills-menu::after{
+        content : '';
+        display: block;
+        width: calc(100% - 40px);
+        border: 1px solid $color-gray-0;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        border-color: $color-while-1;
+    }
+    .hienKhongCoRapChieu{
+        padding: 20px 1rem;
+    }
 }

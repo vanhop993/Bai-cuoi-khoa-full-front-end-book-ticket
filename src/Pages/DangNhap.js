@@ -34,7 +34,6 @@ export default function DangNhap() {
     }
 
     const enableBtn = newError => {
-        console.log('newError',newError);
         let arrNewError = Object.values(newError);
         let arrInputValue = Object.values(inputValue);
         let soValues = document.querySelectorAll('input[name]').length;
@@ -63,7 +62,6 @@ export default function DangNhap() {
     const submitHandle = (e) =>{
         e.preventDefault();
         let arrValuesError = Object.values(inputError);
-        let soValues = document.querySelectorAll('input[name]').length;
         for(let item of arrValuesError){
             if(item){
                 return;

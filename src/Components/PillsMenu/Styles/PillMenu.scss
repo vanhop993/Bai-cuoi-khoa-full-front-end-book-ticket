@@ -1,10 +1,18 @@
 .border-menu-item{
     border: 1px solid $color-while-1;
     background-color: $color-while-0;
+    border-radius: 10px;
     z-index: 50;
     .menu-content-item{
         padding: 20px;
         height: 90px;
+        display: flex;
+    }
+    .border-right{
+        border-right: 1px solid $color-while-1;
+    }
+    .moreMenuLeft{
+        padding: 0 20px;
     }
     .gach-duoi-item::after{
         content : '';
@@ -13,6 +21,8 @@
         border: 1px solid $color-gray-0;
         position: absolute;
         bottom: 0;
+        left:50%;
+        transform: translateX(-50%);
         border-color: $color-while-1;
     }
     .nav-link.gach-duoi-item.active{

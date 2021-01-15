@@ -1,4 +1,5 @@
 import {
+  COMMENT_DANH_GIA,
   DANG_DAT_GHE,
   DAT_VE_THANH_CONG,
   LAY_CHI_TIET_PHIM_API,
@@ -48,6 +49,7 @@ const stateDefault = {
     {tenMangXaHoi:'facebook',logo:'https://tix.vn/app/assets/img/icons/facebook-logo.png',trangChuyen:'#'},
     {tenMangXaHoi:'zalo',logo:'https://tix.vn/app/assets/img/icons/zalo-logo.png',trangChuyen:'#'},
   ],
+  arrCommentOfFilm: [],
   chiTietHeThongRap:[],
   danhSachPhongVe: {},
   mangGheDangDat: [],
@@ -97,6 +99,10 @@ export const QuanLyPhimReducer = (state = stateDefault, action) => {
     }
     case LAY_DANH_SACH_PHIM_PHAN_TRANG: {
       state.danhSachPhimPhanTrang = action.data;
+      return { ...state };
+    }
+    case COMMENT_DANH_GIA : {
+      state.arrCommentOfFilm.push(action.content);
       return { ...state };
     }
     default:
