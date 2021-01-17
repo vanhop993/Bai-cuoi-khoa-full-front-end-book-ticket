@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import starGold from "../../assets/img/starGold.png";
 import starBackground from "../../assets/img/starBackground.png";
 

@@ -48,12 +48,12 @@ function Footer(props) {
             <div className="row">
               <div className="col-lg-6  d-none d-lg-block">
                 <div>
-                  <a className="text-light" href="">
+                  <a className="text-light" href="#">
                     FAQ
                   </a>
                 </div>
                 <div>
-                  <a className="text-light" href="">
+                  <a className="text-light" href="#">
                     Brand Guideline
                   </a>
                 </div>

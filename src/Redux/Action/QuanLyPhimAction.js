@@ -13,7 +13,7 @@ import {
   LAY_DANH_SACH_PHIM_PHAN_TRANG,
   COMMENT_DANH_GIA,
 } from "../Const/QuanLyPhimConst";
-import { displayLoading, hideLoading } from "./LoadingAction";
+import { hideLoading } from "./LoadingAction";
 // action gọi API
 export const layDanhSachPhimApiAction = async () => {
   return async (dispatch) => {
@@ -171,10 +171,10 @@ export const datVeAction = (thongTinVe) => {
       }
       dispatch(await layDanhSachPhongVeAction(thongTinVe.maLichChieu));
       dispatch(datVeThanhCong());
-      swal.fire("Thông báo", "Đặt vé thành công!", "success");
+      swal.fire("Thông báo", `Đặt vé thành công!`, "success");
     } catch (err) {
       console.log(err);
-      swal.fire("Thông báo", "Đặt vé thất bại!", "error");
+      swal.fire("Đặt vé thất bại!", `${err.response.data}`, "error");
     }
   };
 };
@@ -211,11 +211,11 @@ export const deletePhimAction = (maPhim, page, items) => {
           Authorization: "Bearer " + localStorage.getItem(ACCESSTOKEN),
         },
       });
-      swal.fire("Deleted!", "Xóa thành công.", "success");
+      swal.fire("Thông báo", "Xóa phim thành công!!", "success");
       dispatch(await layDanhSachPhimPhanTrangAction(page, items));
     } catch (err) {
       console.log(err.response.data);
-      swal.fire("Thông báo", `Xóa thất bại! ${err.response.data}`, "error");
+      swal.fire("Xóa thất bại!", `${err.response.data}`, "error");
     }
   };
 };
@@ -229,15 +229,11 @@ export const themPhimUpLoadHinh = (formData) => {
         data: formData,
         // headers:{'Authorization': 'Bearer '+localStorage.getItem(ACCESSTOKEN)}
       });
-      swal.fire("Thông báo", "Thêm phim thành công", "success");
+      swal.fire("Thông báo", "Thêm phim thành công!", "success");
       dispatch(await layDanhSachPhimApiAction());
     } catch (err) {
       console.log(err.response.data);
-      swal.fire(
-        "Thông báo",
-        `Thêm phim thất bại! ${err.response.data}`,
-        "error"
-      );
+      swal.fire("Thêm phim thất bại!", ` ${err.response.data}`, "error");
     }
   };
 };
@@ -254,14 +250,10 @@ export const taoLichChieuAction = (thongTinLichChieuNew) => {
         },
       });
       dispatch(await layThongTinLichChieuHeThongRapApiAction());
-      swal.fire("Thông báo", "Thêm lich chiếu thành công", "success");
+      swal.fire("Thông báo", "Tạo lịch chiếu thành công!", "success");
     } catch (err) {
       console.log(err);
-      swal.fire(
-        "Thông báo",
-        `Thêm lịch chiếu thất bại! ${err.response.data}`,
-        "error"
-      );
+      swal.fire("Thêm lịch chiếu thất bại! ", `${err.response.data}`, "error");
     }
   };
 };
@@ -277,12 +269,12 @@ export const capNhapPhimUploadAction = (data, page, items) => {
           Authorization: "Bearer " + localStorage.getItem(ACCESSTOKEN),
         },
       });
-      swal.fire("Thông báo", "Cập nhập thông tin thành công", "success");
+      swal.fire("Thông báo", "Cập nhập thông tin thành công!", "success");
       dispatch(await layDanhSachPhimPhanTrangAction(page, items));
     } catch (err) {
       swal.fire(
-        "Thông báo",
-        `Cập nhập thông tin thất bại! ${err.response?.data}`,
+        "Cập nhập thông tin thất bại!",
+        `${err.response?.data}`,
         "error"
       );
     }
@@ -308,8 +300,8 @@ export const capNhapPhimAction = (data, dataUpHinh, page, items) => {
     } catch (err) {
       console.log(err.response);
       swal.fire(
-        "Thông báo",
-        `Cập nhập thông tin thất bại! ${err.response?.data}`,
+        "Cập nhập thông tin thất bại! ",
+        `${err.response?.data}`,
         "error"
       );
     }

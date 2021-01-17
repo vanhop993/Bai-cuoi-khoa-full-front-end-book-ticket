@@ -28,7 +28,7 @@ export default function HeaderMenuTaiKhoan({ avatar, hoTen }) {
         setOpen((open) => !open);
       }}
     >
-      <img className="mr-1" src={avatar} />
+      <img className="mr-1" src={avatar} alt="avatar" />
       <div>{hoTen}</div>
       {open ? (
         <div className="logout text-dark">

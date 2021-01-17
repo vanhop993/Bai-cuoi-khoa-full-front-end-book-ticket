@@ -1,7 +1,7 @@
 import React, { Fragment, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import PhimItem from "../../Components/ItemPhim";
-import { Element, animateScroll as scroll } from "react-scroll";
+import { Element } from "react-scroll";
 import moment from "moment";
 import MenuNavTabs from "../../Components/MenuNavTabs";
 import TabItem from "../../Components/MenuNavTabs/TabItem";
@@ -145,7 +145,6 @@ export default function TrangChuDanhSachPhim() {
     });
   };
   const renderButtonXemThemVsThuGon = (maxItem) => {
-    console.log(maxItem);
     if (soItemsPhimMobile === 1 && maxItem > 1) {
       return (
         <button

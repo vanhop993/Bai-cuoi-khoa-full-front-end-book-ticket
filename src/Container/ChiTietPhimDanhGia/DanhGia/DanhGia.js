@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import RenderStar from "../../../Components/RenderStar";
 import { AiOutlineLike } from "react-icons/ai";
-import history from "history";
 import ModalBoot from "../../../HOC/ModalBoot";
 import DanhGiaPhimVsComment from "../../../Components/DanhGiaPhimVsComment";
 

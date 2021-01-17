@@ -65,6 +65,8 @@ export default function ChiTietCunRapDanhGia({ maCumRap, maHeThongRap }) {
           );
           break;
         }
+        default:
+          break;
       }
       let active = index === 0 ? "active" : null;
       return (

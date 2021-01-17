@@ -30,7 +30,6 @@ export default function FormValidateQLPhim({ phim, handleSubmit }) {
     }
   }, [phim]);
   const handleChange = (e) => {
-    console.log(typeof e.target.value);
     switch (e.target.name) {
       case "hinhAnh": {
         setValue({ ...value, [e.target.name]: e.target.files[0] });
@@ -52,23 +51,9 @@ export default function FormValidateQLPhim({ phim, handleSubmit }) {
         break;
       }
     }
-    // setError("");
-    // e.target.name === "hinhAnh"
-    //   ? setValue({ ...value, [e.target.name]: e.target.files[0] })
-    //   : setValue({ ...value, [e.target.name]: e.target.value });
-    // if (e.target.name === "tenPhim") {
-    //   setValue({ ...value, tenPhim: e.target.value });
-    // }
-    // if (e.target.name === "ngayKhoiChieu") {
-    //   setValue({
-    //     ...value,
-    //     [e.target.name]: moment(e.target.value).format("DD-MM-yyyy"),
-    //   });
-    // }
-    // setValue({ ...value, [e.target.name]: e.target.value });
   };
   const handleBlur = (e) => {
-    let { name, value, label } = e.target;
+    let { name, value } = e.target;
     setError({ ...error, [name]: `` });
     if (!value) {
       setError({ ...error, [name]: `${name} không được để trống` });
@@ -84,7 +69,6 @@ export default function FormValidateQLPhim({ phim, handleSubmit }) {
               <input
                 className="form-control"
                 name="maPhim"
-                label="Mã phim"
                 value={value.maPhim}
                 type="text"
                 onChange={(e) => handleChange(e)}
@@ -97,7 +81,6 @@ export default function FormValidateQLPhim({ phim, handleSubmit }) {
               <input
                 className="form-control"
                 name="tenPhim"
-                label="Tên phim"
                 value={value.tenPhim}
                 type="text"
                 onChange={(e) => handleChange(e)}
@@ -109,7 +92,6 @@ export default function FormValidateQLPhim({ phim, handleSubmit }) {
               <input
                 className="form-control"
                 name="trailer"
-                label="Trailer phim"
                 value={value.trailer}
                 type="text"
                 onChange={(e) => handleChange(e)}
@@ -124,7 +106,6 @@ export default function FormValidateQLPhim({ phim, handleSubmit }) {
                 <input
                   className="form-control"
                   name="ngayKhoiChieu"
-                  label="Ngày khời chiếu"
                   type="date"
                   value={`${value.ngayKhoiChieu}`}
                   onChange={(e) => handleChange(e)}
@@ -137,7 +118,6 @@ export default function FormValidateQLPhim({ phim, handleSubmit }) {
               <input
                 className="form-control"
                 name="danhGia"
-                label="Đánh giá"
                 value={value.danhGia}
                 type="text"
                 onChange={(e) => handleChange(e)}
@@ -152,7 +132,6 @@ export default function FormValidateQLPhim({ phim, handleSubmit }) {
                   type="file"
                   className="custom-file-input"
                   name="hinhAnh"
-                  label="Hình ảnh"
                   style={{ fontSize: "1.4rem" }}
                   onChange={(e) => handleChange(e)}
                   onBlur={(e) => handleBlur(e)}

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 export default function MobiPillsMenuResponsive({
   menuUp,
@@ -32,10 +33,11 @@ export default function MobiPillsMenuResponsive({
       >
         {more}
         <div
-          className="w-100 gach-duoi-items-pills-menu"
+          className="w-100 gach-duoi-items-pills-menu d-flex align-items-center justify-content-between"
           onClick={() => setToggleShow((toggleShow) => !toggleShow)}
         >
           {menuUp}
+          {toggleShow ? <IoIosArrowUp /> : <IoIosArrowDown />}
         </div>
         {toggleShow ? (
           <div className="position-relative gach-duoi-items-pills-menu">

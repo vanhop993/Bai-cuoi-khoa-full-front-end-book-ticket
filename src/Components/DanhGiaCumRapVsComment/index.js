@@ -36,6 +36,8 @@ export default function DanhGiaCumRapVsComment({ ten }) {
         setMatch({ ...match, dichVuKhac: rating });
         break;
       }
+      default:
+        break;
     }
   };
   const handleChangeComment = (e) => {

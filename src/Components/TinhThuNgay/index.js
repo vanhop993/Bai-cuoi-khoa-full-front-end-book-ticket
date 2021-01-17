@@ -1,42 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useState } from "react";
 import moment from "moment";
 
-let arrLayThuNgay = [];
 let now = new Date();
 export default function TinhThuNgay({ handleClick }) {
   const [activeButton, setActiveButton] = useState(0);
   // hàm tính thế kỷ
-  const century = (y) => {
-    return Math.floor(y / 100);
-  };
+  // const century = (y) => {
+  //   return Math.floor(y / 100);
+  // };
 
   // hàm tính tháng cho công thức zeller
-  const month = (m) => {
-    return m < 3 ? m + 10 : m - 2;
-  };
+  // const month = (m) => {
+  //   return m < 3 ? m + 10 : m - 2;
+  // };
 
   // hàm tính năm trong thể kỷ
-  const year = (y) => {
-    return y % 100;
-  };
+  // const year = (y) => {
+  //   return y % 100;
+  // };
 
   // công thức zeller
-  const _zeller = (day, month, year, century) => {
-    return (
-      ((13 * month - 1) / 5 +
-        year / 4 +
-        century / 4 +
-        day +
-        year -
-        2 * century) %
-      7
-    );
-  };
+  // const _zeller = (day, month, year, century) => {
+  //   return (
+  //     ((13 * month - 1) / 5 +
+  //       year / 4 +
+  //       century / 4 +
+  //       day +
+  //       year -
+  //       2 * century) %
+  //     7
+  //   );
+  // };
 
   // viết lại cho dễ dùng
-  const zeller = (d, m, y) => {
-    return _zeller(d, month(m), year(y), century(y));
-  };
+  // const zeller = (d, m, y) => {
+  //   return _zeller(d, month(m), year(y), century(y));
+  // };
   // tinh năm nhuận
   // trả 0 là năm thường trả về 1 là năm nhuận
   const ktNamNhuan = (year) => {
@@ -69,7 +68,7 @@ export default function TinhThuNgay({ handleClick }) {
         case "Saturday": {
           return "T7";
         }
-        case "Sunday": {
+        default: {
           return "CN";
         }
       }
@@ -93,7 +92,7 @@ export default function TinhThuNgay({ handleClick }) {
         case "Saturday": {
           return "Thứ 7";
         }
-        case "Sunday": {
+        default: {
           return "Chủ nhật";
         }
       }
@@ -121,9 +120,8 @@ export default function TinhThuNgay({ handleClick }) {
     return arrThuNgay.map((item, index) => {
       let active = index === activeButton ? "active" : "";
       return (
-        <>
+        <Fragment key={index}>
           <div
-            key={index}
             className={`thuNgayItem font-weight-bold  ${active}`}
             onClick={() => {
               setActiveButton(index);
@@ -139,7 +137,7 @@ export default function TinhThuNgay({ handleClick }) {
                 : moment(item).format("DD/MM")}
             </div>
           </div>
-        </>
+        </Fragment>
       );
     });
   };

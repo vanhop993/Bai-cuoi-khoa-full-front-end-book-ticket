@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import logo from "../../logo-cybersoft.png";
 import avatar from "./img/avatar.png";
@@ -12,9 +12,6 @@ function Header() {
   const [navMobile, setNavMoble] = useState(false);
   const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
   const dispatch = useDispatch();
-  // useEffect(() => {
-  //   setNavMoble(false);
-  // }, [])
   const handleNavMoble = () => {
     setNavMoble(!navMobile);
   };

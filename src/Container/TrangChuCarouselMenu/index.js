@@ -2,7 +2,6 @@ import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DropDown from "../../Components/DropDown";
 import OptionSelect from "../../Components/DropDown/Option";
-import PhimItem from "../../Components/ItemPhim";
 import moment from "moment";
 import { layChiTietPhimApiAction } from "../../Redux/Action/QuanLyPhimAction";
 import { LAY_CHI_TIET_PHIM_API } from "../../Redux/Const/QuanLyPhimConst";

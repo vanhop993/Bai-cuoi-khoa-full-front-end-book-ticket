@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { useHistory, useLocation } from "react-router-dom";
-import { withRouter } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 function ScrollTopReactRoute() {
   const { pathname } = useLocation();
@@ -10,4 +10,4 @@ function ScrollTopReactRoute() {
   return null;
 }
 
-export default withRouter(ScrollTopReactRoute)
+export default withRouter(ScrollTopReactRoute);

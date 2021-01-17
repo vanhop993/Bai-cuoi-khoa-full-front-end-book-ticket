@@ -4,7 +4,7 @@ import PillsMenu from "../../../Components/PillsMenu";
 import ItemLeftPillsMenu from "../../../Components/PillsMenu/ItemLeftPillsMenu";
 import ItemRightPillsMenu from "../../../Components/PillsMenu/ItemRightPillsMenu";
 import MobiPillsMenuResponsive from "../../../Components/ResponsiveMobiPillsMenu";
-import { Element, animateScroll as scroll } from "react-scroll";
+import { Element } from "react-scroll";
 import moment from "moment";
 import TinhThuNgay from "../../../Components/TinhThuNgay";
 

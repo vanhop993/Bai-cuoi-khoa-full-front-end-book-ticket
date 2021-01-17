@@ -24,9 +24,7 @@ export default function ModalBoot({ title, Component }) {
             </button>
           </div>
           <div className="modal-body">
-            <div className="container-fluid">
-              {Component}
-            </div>
+            <div className="container-fluid">{Component}</div>
           </div>
           {/* <div className="modal-footer">
             <button

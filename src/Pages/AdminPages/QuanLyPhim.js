@@ -5,7 +5,6 @@ import {
   layDanhSachPhimPhanTrangAction,
   deletePhimAction,
   capNhapPhimUploadAction,
-  capNhapPhimAction,
 } from "../../Redux/Action/QuanLyPhimAction";
 import "antd/dist/antd.css";
 import { Pagination } from "antd";
@@ -30,13 +29,13 @@ export default function QuanLyPhim() {
       dispatch(await layDanhSachPhimApiAction());
     }
     fetchData();
-  }, []);
+  }, [dispatch]);
   useEffect(() => {
     async function fetchData() {
       dispatch(await layDanhSachPhimPhanTrangAction(page?.page, page?.items));
     }
     fetchData();
-  }, [page]);
+  }, []);
   const { danhSachPhimPhanTrang } = useSelector(
     (state) => state.QuanLyPhimReducer
   );
@@ -63,7 +62,6 @@ export default function QuanLyPhim() {
   };
 
   const deletePhim = (maPhim, page, items) => {
-    console.log(maPhim);
     Swal.fire({
       title: "Bạn có chắc muốn xóa?",
       // text: "Bạn sẽ không thể!",
@@ -84,30 +82,11 @@ export default function QuanLyPhim() {
     });
   };
   const handleSua = (value, error) => {
-    console.log("value", value);
     const form = new FormData();
     for (let key in value) {
       form.append(key, value[key]);
     }
     dispatch(capNhapPhimUploadAction(form, page.page, page.items));
-    //   const objHinh = {
-    //     File: value.hinhAnh,
-    //     maNhom: value.maNhom,
-    //     tenPhim: value.tenPhim,
-    //   };
-    //   for (let key in objHinh) {
-    //     if (key === "File") {
-    //       console.log(objHinh[key].name);
-    //       let { name } = objHinh[key];
-    //       form.append(key, objHinh[key], `${name}`);
-    //     } else {
-    //       form.append(key, objHinh[key]);
-    //     }
-    //   }
-
-    //   value.hinhAnh = `http://movie0706.cybersoft.edu.vn/hinhanh/${value.hinhAnh.name}`;
-    //   console.log(value);
-    //   dispatch(capNhapPhimAction(value, form, page.page, page.items));
   };
   return (
     <div className="container">

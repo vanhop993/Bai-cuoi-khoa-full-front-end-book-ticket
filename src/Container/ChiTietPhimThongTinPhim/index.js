@@ -79,6 +79,7 @@ export default function ChiTietPhimThongTinPhim(props) {
           </div>
         </div>
         <iframe
+          title={props.chiTietPhim.tenPhim}
           className="w-100 d-block d-md-none"
           src={props.chiTietPhim.trailer}
           frameBorder="0"

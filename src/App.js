@@ -17,7 +17,6 @@ import QuanLyPhim from "./Pages/AdminPages/QuanLyPhim";
 import ThemPhim from "./Pages/AdminPages/ThemPhim";
 import QuanLyNguoiDung from "./Pages/AdminPages/QuanLyNguoiDung";
 import ThemNguoiDung from "./Pages/AdminPages/ThemNguoiDung";
-import TinhThuNgay from "./Components/TinhThuNgay";
 
 function App() {
   const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);

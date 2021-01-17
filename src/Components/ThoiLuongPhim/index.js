@@ -1,9 +1,5 @@
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
-import {
-  layDanhSachPhimApiAction,
-  layThoiLuongPhimTrongChiTietPhimApiAction,
-} from "../../Redux/Action/QuanLyPhimAction";
 import { DOMAIN } from "../../Util/config";
 
 let thoiLuong;

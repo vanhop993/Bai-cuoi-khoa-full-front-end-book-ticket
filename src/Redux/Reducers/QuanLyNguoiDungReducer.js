@@ -1,4 +1,10 @@
-import { DANG_KY, DANG_NHAP, DANG_XUAT, LAY_DANH_SACH_NGUOI_DUNG_PHAN_TRANG, LAY_THONG_TIN_NGUOI_DUNG, TIM_KIEM_NGUOI_DUNG } from "../Const/QuanLyNguoiDungConst";
+import {
+  DANG_NHAP,
+  DANG_XUAT,
+  LAY_DANH_SACH_NGUOI_DUNG_PHAN_TRANG,
+  LAY_THONG_TIN_NGUOI_DUNG,
+  TIM_KIEM_NGUOI_DUNG,
+} from "../Const/QuanLyNguoiDungConst";
 
 const { USER_LOGIN, ACCESSTOKEN } = require("../../Util/config");
 
@@ -37,7 +43,7 @@ export const QuanLyNguoiDungReducer = (state = stateDefault, action) => {
     }
     case TIM_KIEM_NGUOI_DUNG: {
       state.danhSachNguoiDungTimKiem = action.data;
-      return {...state};
+      return { ...state };
     }
     default:
       return { ...state };

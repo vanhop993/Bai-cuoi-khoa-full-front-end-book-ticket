@@ -29,7 +29,7 @@ export default function ChiTietCumRapMenu({ maCumRap, maHeThongRap }) {
   const { lichChieuHeThongRap } = useSelector(
     (state) => state.QuanLyPhimReducer
   );
-  const [toggle, setToggle] = useState(maCumRap);
+  // const [toggle, setToggle] = useState(maCumRap);
   const renderLichChieuHeThongRapChinh = () => {
     let heThongRap = lichChieuHeThongRap.find(
       (item) => item.maHeThongRap === maHeThongRap
@@ -64,7 +64,6 @@ export default function ChiTietCumRapMenu({ maCumRap, maHeThongRap }) {
     );
     // let dsCumRapConLai = heThongRap?.lstCumRap.splice(index,1);
     return heThongRap?.lstCumRap.map((rap, index1) => {
-      let active = index1 === 0 ? "active" : "";
       let tenCumRap = rap ? rap.tenCumRap.split("-") : [];
       let key = index1 > index ? index1 - 1 : index1;
       return rap !== heThongRap?.lstCumRap[index] ? (
@@ -72,7 +71,7 @@ export default function ChiTietCumRapMenu({ maCumRap, maHeThongRap }) {
           <NavLink
             to={`/chitietcumrap/${maHeThongRap}/${rap?.maCumRap}`}
             onClick={() => {
-              setToggle(rap.maCumRap);
+              // setToggle(rap.maCumRap);
               dispatch(displayLoading());
             }}
           >
@@ -136,7 +135,7 @@ export default function ChiTietCumRapMenu({ maCumRap, maHeThongRap }) {
     heThongRap?.lstCumRap.unshift(rap);
     let menuIndexX = [];
     let menuIndex0 = [];
-    heThongRap?.lstCumRap.map((rap, index) => {
+    heThongRap?.lstCumRap.forEach((rap, index) => {
       let tenCumRap = rap ? rap.tenCumRap.split("-") : [];
       if (index === 0) {
         menuIndex0.push(

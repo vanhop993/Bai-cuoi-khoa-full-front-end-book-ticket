@@ -16,7 +16,6 @@ import { BsFillTrashFill } from "react-icons/bs";
 
 export default function QuanLyNguoiDung() {
   const [page, setPage] = useState();
-  const [searchContent, setSearchContent] = useState("");
   const [showList, setShowList] = useState();
   const [modal, setModal] = useState();
   const { danhSachNguoiDungPhanTrang } = useSelector(
@@ -42,13 +41,9 @@ export default function QuanLyNguoiDung() {
       setShowList(danhSachNguoiDungPhanTrang.items);
     }
   }, [danhSachNguoiDungTimKiem, danhSachNguoiDungPhanTrang]);
-  // useEffect(() => {
-  //     setShowList(danhSachNguoiDungPhanTrang.items);
-  // }, [danhSachNguoiDungPhanTrang]);
   const xoaNguoiDung = (taiKhoan, page, items) => {
     Swal.fire({
       title: "Bạn có chắc muốn xóa?",
-      // text: "Bạn sẽ không thể!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",

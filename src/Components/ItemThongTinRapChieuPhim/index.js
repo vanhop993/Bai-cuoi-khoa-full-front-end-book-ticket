@@ -17,10 +17,10 @@ export default function ItemThongTinRapChieuPhim({
   styleCss,
 }) {
   const sapXepNgayGio = (a, b) => {
-    var nameA = moment(a.ngayChieuGioChieu)
+    let nameA = moment(a.ngayChieuGioChieu)
       .format("yyyy-MM-DD HH:mm")
       .toUpperCase(); // bỏ qua hoa thường
-    var nameB = moment(b.ngayChieuGioChieu)
+    let nameB = moment(b.ngayChieuGioChieu)
       .format("yyyy-MM-DD HH:mm")
       .toUpperCase(); // bỏ qua hoa thường
     if (nameA < nameB) {

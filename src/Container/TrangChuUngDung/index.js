@@ -1,5 +1,5 @@
 import React from "react";
-import { Element, animateScroll as scroll } from "react-scroll";
+import { Element } from "react-scroll";
 
 export default function UngDung() {
   return (

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import CumRap from "./CumRap";
 import CumRapResponMobile from "./CumRapResponMobile";
-import { Element, animateScroll as scroll } from "react-scroll";
+import { Element } from "react-scroll";
 
 export default function HeThongRapDemo(props) {
   const [openRight, setOpenRight] = useState();

@@ -51,7 +51,6 @@ export default function TaoLichChieu(props) {
     fetchData();
   }, []);
   useEffect(() => {
-    console.log(cumRapMenu);
     async function fetchData() {
       dispatch(
         await layThongTinCumRapTheoHeThongApiAction(cumRapMenu.maHeThongRap)
@@ -140,8 +139,8 @@ export default function TaoLichChieu(props) {
           (item) => item.maCumRap === dsLichChieu?.maCumRap
         );
         if (value) {
-          rap?.danhSachPhim.map((itemPhim) => {
-            itemPhim?.lstLichChieuTheoPhim.map((item) => {
+          rap?.danhSachPhim.forEach((itemPhim) => {
+            itemPhim?.lstLichChieuTheoPhim.forEach((item) => {
               if (item.maRap === value) {
                 arrLichChieuTheoRap.push(
                   <tr key={arrLichChieuTheoRap.length}>
@@ -167,8 +166,6 @@ export default function TaoLichChieu(props) {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(thongTinLichChieu);
-    // console.log("error", error);
     if (!Object.keys(error).length) {
       Swal.fire(
         "Thông báo",
@@ -177,8 +174,19 @@ export default function TaoLichChieu(props) {
       );
       return;
     }
+    for (let item of Object.values(thongTinLichChieu)) {
+      if (!item) {
+        Swal.fire(
+          "Thông báo",
+          "Vui lòng điền đầy đủ thông tin để tạo lịch chiếu",
+          "error"
+        );
+        return;
+      }
+    }
     for (let item of Object.values(error)) {
       if (item) {
+        Swal.fire("Thông báo", item, "error");
         return;
       }
     }

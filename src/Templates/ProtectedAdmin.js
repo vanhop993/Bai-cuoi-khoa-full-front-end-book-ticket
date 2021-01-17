@@ -1,17 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Redirect, Route } from "react-router-dom";
-
-import { useSelector } from "react-redux";
 import AdminTemplate from "../Container/AdminTemplate/AdminTemplate";
 
 export const ProtectedAdmin = (props) => {
-  const [state, setState] = useState({
-    collapsed: false,
-  });
-  const { userLogin } = useSelector((state) => state.QuanLyNguoiDungReducer);
-  const onCollapse = (collapsed) => {
-    setState({ collapsed });
-  };
   const { Component, ...resParams } = props;
   const renderNamePage = (url) => {
     switch (url) {
@@ -27,6 +18,8 @@ export const ProtectedAdmin = (props) => {
       case "/admin/themnguoidung": {
         return "Thêm người dung";
       }
+      default:
+        break;
     }
   };
   return (

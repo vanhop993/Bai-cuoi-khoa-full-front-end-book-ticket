@@ -2,7 +2,11 @@ import TrangChuCarousel from "../Container/TrangChuCarousel";
 import React, { useEffect } from "react";
 import TrangChuDanhSachPhim from "../Container/TrangChuDanhSachPhim";
 import TrangChuMenu from "../Container/TrangChuMenu";
-import { layDanhSachPhimApiAction, layThongTinHeThongRapApiAction,layThongTinLichChieuHeThongRapApiAction } from "../Redux/Action/QuanLyPhimAction";
+import {
+  layDanhSachPhimApiAction,
+  layThongTinHeThongRapApiAction,
+  layThongTinLichChieuHeThongRapApiAction,
+} from "../Redux/Action/QuanLyPhimAction";
 import { useDispatch } from "react-redux";
 // import HeThongRapDemo from "../Container/TrangChuMenuHeThongRap_Demo";
 import TinTuc from "../Container/TrangChuTinTuc";
@@ -25,7 +29,7 @@ export default function TrangChu() {
     <>
       <TrangChuCarousel />
       <TrangChuDanhSachPhim />
-      <TrangChuMenu/> 
+      <TrangChuMenu />
       {/* <HeThongRapDemo /> */}
       <TinTuc />
       <UngDung />

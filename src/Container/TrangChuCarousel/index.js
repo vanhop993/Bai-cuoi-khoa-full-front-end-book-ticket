@@ -1,15 +1,8 @@
-import React, {
-  Fragment,
-  useEffect,
-  useMemo,
-  useReducer,
-  useState,
-} from "react";
+import React, { useEffect, useMemo, useReducer, useState } from "react";
 import { useSelector } from "react-redux";
 import Slide from "./Slide";
 import moment from "moment";
 import TrangChuCarouselMenu from "../../Container/TrangChuCarouselMenu";
-import OptionSelect from "../../Components/DropDown/Option";
 
 // const slides = [
 //   {
@@ -53,9 +46,6 @@ let now = new Date();
 export default function TrangChuCarousel(props) {
   const [slides, setSlides] = useState([]);
   const { dsPhim } = useSelector((state) => state.QuanLyPhimReducer);
-  const { lichChieuHeThongRap } = useSelector(
-    (state) => state.QuanLyPhimReducer
-  );
   const newDSPhim = useMemo(() => dsPhim, [dsPhim]);
   const dsPhimSapChieu = () => {
     let year = parseInt(moment(now).format("YYYY"));

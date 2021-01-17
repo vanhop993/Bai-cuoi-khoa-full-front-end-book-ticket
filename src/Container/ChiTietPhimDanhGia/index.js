@@ -42,7 +42,10 @@ export default function ChiTietPhimDanhGia() {
         }
         case "danhGia": {
           itemTab.content = <DanhGia chiTietPhim={chiTietPhim} />;
+          break;
         }
+        default:
+          break;
       }
       let active = index === 0 ? "active" : null;
       return (

@@ -1,19 +1,17 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment } from "react";
 import { useSelector } from "react-redux";
 import ItemLeftPillsMenu from "../../Components/PillsMenu/ItemLeftPillsMenu";
 import PillsMenu from "../../Components/PillsMenu";
 import ItemRightPillsMenu from "../../Components/PillsMenu/ItemRightPillsMenu";
 import { NavLink } from "react-router-dom";
 import ItemThongTinPhimMenu from "../../Components/ItemThongTinPhimMenu";
-import _ from "lodash";
 import ItemThongTinRapChieuPhim from "../../Components/ItemThongTinRapChieuPhim";
 import moment from "moment";
-import { Element, animateScroll as scroll } from "react-scroll";
+import { Element } from "react-scroll";
 import MobiPillsMenuResponsive from "../../Components/ResponsiveMobiPillsMenu";
 
 let now = new Date();
 export default function TrangChuMenu(props) {
-  const [ngayChon, setNgayChon] = useState(now);
   const { heThongRap } = useSelector((state) => state.QuanLyPhimReducer);
   const { lichChieuHeThongRap } = useSelector(
     (state) => state.QuanLyPhimReducer
@@ -107,9 +105,9 @@ export default function TrangChuMenu(props) {
                 .filter((phimItem) => {
                   let indexLichChieuTheoNgay = phimItem.lstLichChieuTheoPhim.findIndex(
                     (item) =>
-                      moment(ngayChon).format("yyyy-MM-DD") ===
+                      moment(now).format("yyyy-MM-DD") ===
                         moment(item.ngayChieuGioChieu).format("yyyy-MM-DD") &&
-                      moment(ngayChon).format("HH:mm") <
+                      moment(now).format("HH:mm") <
                         moment(item.ngayChieuGioChieu).format("HH:mm")
                   );
                   return indexLichChieuTheoNgay !== -1;
@@ -165,9 +163,9 @@ export default function TrangChuMenu(props) {
               .filter((phimItem) => {
                 let indexLichChieuTheoNgay = phimItem.lstLichChieuTheoPhim.findIndex(
                   (item) =>
-                    moment(ngayChon).format("yyyy-MM-DD") ===
+                    moment(now).format("yyyy-MM-DD") ===
                       moment(item.ngayChieuGioChieu).format("yyyy-MM-DD") &&
-                    moment(ngayChon).format("HH:mm") <
+                    moment(now).format("HH:mm") <
                       moment(item.ngayChieuGioChieu).format("HH:mm")
                 );
                 return indexLichChieuTheoNgay !== -1;

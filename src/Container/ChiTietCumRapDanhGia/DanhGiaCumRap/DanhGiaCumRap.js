@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import RenderStar from "../../../Components/RenderStar";
 import ModalBoot from "../../../HOC/ModalBoot";
-import DanhGiaPhimVsComment from "../../../Components/DanhGiaPhimVsComment";
 import DanhGiaCumRapVsComment from "../../../Components/DanhGiaCumRapVsComment";
 
 export default function DanhGiaCumRap({ title, titleModal, ten }) {
@@ -24,33 +23,7 @@ export default function DanhGiaCumRap({ title, titleModal, ten }) {
       });
     }
   };
-  const renderComment = () => {
-    //     return arrCommentOfFilm?.map((item,index) => {
-    //         console.log(item);
-    //         return (
-    //             <div className='w-100 p-3 mb-2 bg-light commentContent' key={index}>
-    //                 <div className="d-flex align-items-center justify-content-between">
-    //                     <div className="d-flex align-items-center mb-2">
-    //                         <img className='mr-2' src={avatar} alt='img-user' width={30} height={30}/>
-    //                         <div>{item.hoTen}</div>
-    //                     </div>
-    //                     <div>
-    //                         <div className='text-center text-success ratingShow'>{item.rating}.0</div>
-    //                         <RenderStar danhGia={item.rating}/>
-    //                     </div>
-    //                 </div>
-    //                 <div className='w-100 commentShow'>
-    //                     {item.comment}
-    //                 </div>
-    //                 <hr/>
-    //                 <div className='likeShow d-flex align-items-center'>
-    //                     <div className='likeIcon'><AiOutlineLike /></div>
-    //                     <div className='soLike  ml-2'>{item.like.length} Thích</div>
-    //                 </div>
-    //             </div>
-    //         )
-    //     })
-  };
+  const renderComment = () => {};
   return (
     <>
       <div

@@ -3,14 +3,13 @@ import { ACCESSTOKEN, DOMAIN, USER_LOGIN } from "../../Util/config";
 import swal from "sweetalert2";
 import { history } from "../../Util/History";
 import {
-  COMMENT_DANH_GIA,
-  DANG_KY,
   DANG_NHAP,
   LAY_DANH_SACH_NGUOI_DUNG_PHAN_TRANG,
   LAY_THONG_TIN_NGUOI_DUNG,
   TIM_KIEM_NGUOI_DUNG,
 } from "../Const/QuanLyNguoiDungConst";
 import { DANG_XUAT } from "../Const/QuanLyNguoiDungConst";
+import { hideLoading } from "./LoadingAction";
 
 export const dangNhapAction = (userLogin) => {
   return (dispatch) => {
@@ -47,7 +46,7 @@ export const dangKyAction = (newTaiKhoan) => {
       data: newTaiKhoan,
     });
     promise
-      .then((result) => {
+      .then(() => {
         // đăng nhập thành công lưu thông tin người dùng vào local store
         // localStorage.setItem(USER_LOGIN, JSON.stringify(result.data));
         // lưu token vào local store
@@ -78,6 +77,11 @@ export const thongTinTaiKhoanAction = async (taiKhoan) => {
         type: LAY_THONG_TIN_NGUOI_DUNG,
         data: result.data,
       });
+      if (result.status === 200) {
+        setTimeout(() => {
+          dispatch(hideLoading());
+        }, 1000);
+      }
     } catch (err) {
       console.log(err);
     }
@@ -110,7 +114,7 @@ export const layDanhSachNguoiDungPhanTrangApi = (page, items) => {
 export const deleteNguoiDungAction = (taiKhoan, page, items) => {
   return async (dispatch) => {
     try {
-      let results = await Axios({
+      await Axios({
         url: DOMAIN + `/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`,
         method: "DELETE",
         data: taiKhoan,
@@ -133,7 +137,7 @@ export const deleteNguoiDungAction = (taiKhoan, page, items) => {
 export const themNguoiDungAction = (newNguoiDung) => {
   return async (dispatch) => {
     try {
-      let results = await Axios({
+      await Axios({
         url: DOMAIN + `/api/QuanLyNguoiDung/ThemNguoiDung`,
         method: "POST",
         data: newNguoiDung,
@@ -151,7 +155,7 @@ export const themNguoiDungAction = (newNguoiDung) => {
 export const suaThongTinUserAction = (data, page, items) => {
   return async (dispatch) => {
     try {
-      let results = await Axios({
+      await Axios({
         url: DOMAIN + "/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung",
         method: "PUT",
         data,

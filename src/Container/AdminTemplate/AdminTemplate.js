@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { NavLink, Redirect, Route } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "antd/dist/antd.css";
 import { Layout, Menu, Breadcrumb } from "antd";
-import { FileOutlined, TeamOutlined, UserOutlined } from "@ant-design/icons";
+import { UserOutlined } from "@ant-design/icons";
 import logo from "../../assets/img/logo-cybersoft.png";
 import avatar from "../../assets/img/avatar.png";
 import { useSelector } from "react-redux";
@@ -32,13 +32,14 @@ export default function AdminTemplate({
         <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
           <NavLink to="/" className="pt-5 pb-5 text-center d-block">
             {!state.collapsed ? (
-              <img style={{ borderRadius: "50%" }} src={logo} />
+              <img style={{ borderRadius: "50%" }} src={logo} alt="Logo" />
             ) : (
               <img
                 style={{ borderRadius: "50%" }}
                 src={logo}
                 width={50}
                 height={50}
+                alt="Logo"
               />
             )}
             {!state.collapsed ? (
