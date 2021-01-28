@@ -7,6 +7,7 @@ import {
 } from "../Redux/Action/QuanLyPhimAction";
 import { displayLoading } from "../Redux/Action/LoadingAction";
 import ChiTietPhimDanhGia from "../Container/ChiTietPhimDanhGia";
+import HelmetComponent from "../Components/HelmetComponent";
 
 export default function ChiTietPhim(props) {
   const { chiTietPhim } = useSelector((state) => state.QuanLyPhimReducer);
@@ -22,6 +23,10 @@ export default function ChiTietPhim(props) {
   }, []);
   return (
     <>
+      <HelmetComponent
+        title={chiTietPhim.tenPhim}
+        description={chiTietPhim.tenPhim}
+      />
       <div className="container chi-tiet-phim">
         <ChiTietPhimThongTinPhim chiTietPhim={chiTietPhim} />
         <ChiTietPhimDanhGia />

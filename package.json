@@ -16,6 +16,7 @@
     "node-sass": "^4.14.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
     "react-icons": "^3.11.0",
     "react-modal-video": "^1.2.6",
     "react-owl-carousel": "^2.3.1",
@@ -35,7 +36,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build & cd build & copy index.html 200.html surge"
+    "deploy": "npm run build & cd build & copy index.html 200.html & surge"
   },
   "eslintConfig": {
     "extends": [

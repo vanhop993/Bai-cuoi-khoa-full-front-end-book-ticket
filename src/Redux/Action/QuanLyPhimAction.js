@@ -14,6 +14,7 @@ import {
   COMMENT_DANH_GIA,
 } from "../Const/QuanLyPhimConst";
 import { hideLoading } from "./LoadingAction";
+
 // action gọi API
 export const layDanhSachPhimApiAction = async () => {
   return async (dispatch) => {
@@ -258,7 +259,7 @@ export const taoLichChieuAction = (thongTinLichChieuNew) => {
   };
 };
 
-export const capNhapPhimUploadAction = (data, page, items) => {
+export const capNhapPhimUploadAction = (data, page, items, hideModal) => {
   return async (dispatch) => {
     try {
       await Axios({
@@ -269,8 +270,8 @@ export const capNhapPhimUploadAction = (data, page, items) => {
           Authorization: "Bearer " + localStorage.getItem(ACCESSTOKEN),
         },
       });
-      swal.fire("Thông báo", "Cập nhập thông tin thành công!", "success");
       dispatch(await layDanhSachPhimPhanTrangAction(page, items));
+      swal.fire("Thông báo", "Cập nhập thông tin thành công!", "success");
     } catch (err) {
       swal.fire(
         "Cập nhập thông tin thất bại!",
@@ -353,3 +354,12 @@ export const commentAction = (content) => {
     content,
   };
 };
+
+// close modal boostrap
+// const closeModal = () => {
+//   document.querySelector(".modal").classList.remove("show");
+//   document.querySelector(".modal").style = "";
+//   document.querySelector(".modal-backdrop").remove();
+//   document.querySelector(".modal-open").style.remove();
+//   document.querySelector(".modal-open").classList.remove("modal-open");
+// };

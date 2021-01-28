@@ -1,0 +1,7 @@
+@media screen and (min-width: 576px) {
+  .modal-dialog {
+    max-width: 1000px;
+    padding: auto;
+  }
+}
+/*# sourceMappingURL=Modal.css.map */

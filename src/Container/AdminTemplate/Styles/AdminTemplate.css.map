@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,cAAc,AAAA,gBAAgB,CAAC,uBAAuB,CAAC;EACnD,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,MAAM;CACtB",
+    "sources": [
+        "AdminTemplate.scss"
+    ],
+    "names": [],
+    "file": "AdminTemplate.css"
+}

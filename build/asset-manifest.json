@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f1595d90.chunk.css",
+    "main.js": "/static/js/main.5fd64841.chunk.js",
+    "main.js.map": "/static/js/main.5fd64841.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.d825d582.js",
+    "runtime-main.js.map": "/static/js/runtime-main.d825d582.js.map",
+    "static/css/2.205aa426.chunk.css": "/static/css/2.205aa426.chunk.css",
+    "static/js/2.3c5675f4.chunk.js": "/static/js/2.3c5675f4.chunk.js",
+    "static/js/2.3c5675f4.chunk.js.map": "/static/js/2.3c5675f4.chunk.js.map",
+    "static/js/3.ed774cbd.chunk.js": "/static/js/3.ed774cbd.chunk.js",
+    "static/js/3.ed774cbd.chunk.js.map": "/static/js/3.ed774cbd.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.205aa426.chunk.css.map": "/static/css/2.205aa426.chunk.css.map",
+    "static/css/main.f1595d90.chunk.css.map": "/static/css/main.f1595d90.chunk.css.map",
+    "static/js/2.3c5675f4.chunk.js.LICENSE.txt": "/static/js/2.3c5675f4.chunk.js.LICENSE.txt",
+    "static/media/BoCongThuong.cb85045e.png": "/static/media/BoCongThuong.cb85045e.png",
+    "static/media/default-film.3b92d752.webp": "/static/media/default-film.3b92d752.webp",
+    "static/media/App.scss": "/static/media/home-bg.e85ef9d3.jpg",
+    "static/media/loading.2dce4570.gif": "/static/media/loading.2dce4570.gif",
+    "static/media/logo-cybersoft.23fa9075.png": "/static/media/logo-cybersoft.23fa9075.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d825d582.js",
+    "static/css/2.205aa426.chunk.css",
+    "static/js/2.3c5675f4.chunk.js",
+    "static/css/main.f1595d90.chunk.css",
+    "static/js/main.5fd64841.chunk.js"
+  ]
+}

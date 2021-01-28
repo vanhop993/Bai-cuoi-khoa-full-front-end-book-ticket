@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux";
 import TinTuc from "../Container/TrangChuTinTuc";
 import UngDung from "../Container/TrangChuUngDung";
 import { displayLoading } from "../Redux/Action/LoadingAction";
+import HelmetComponent from "../Components/HelmetComponent";
 // import TrangChuMenu from '../Container/TrangChuMenu';
 
 export default function TrangChu() {
@@ -27,6 +28,10 @@ export default function TrangChu() {
   }, []);
   return (
     <>
+      <HelmetComponent
+        title={"Đặt vé xem phim"}
+        description={"Đặt vé xem phim"}
+      />
       <TrangChuCarousel />
       <TrangChuDanhSachPhim />
       <TrangChuMenu />

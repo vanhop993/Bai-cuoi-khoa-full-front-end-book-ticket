@@ -29,13 +29,13 @@ export default function QuanLyPhim() {
       dispatch(await layDanhSachPhimApiAction());
     }
     fetchData();
-  }, [dispatch]);
+  }, []);
   useEffect(() => {
     async function fetchData() {
       dispatch(await layDanhSachPhimPhanTrangAction(page?.page, page?.items));
     }
     fetchData();
-  }, []);
+  }, [page]);
   const { danhSachPhimPhanTrang } = useSelector(
     (state) => state.QuanLyPhimReducer
   );
@@ -81,7 +81,7 @@ export default function QuanLyPhim() {
       }
     });
   };
-  const handleSua = (value, error) => {
+  const handleSua = (value) => {
     const form = new FormData();
     for (let key in value) {
       form.append(key, value[key]);

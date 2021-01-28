@@ -172,20 +172,22 @@ export const suaThongTinUserAction = (data, page, items) => {
   };
 };
 
-export const timKiemNguoiDungAction = (valueSearch) => {
+export const timKiemNguoiDungPhanTrangAPiAction = (valueSearch,page,items) => {
   return async (dispatch) => {
     try {
       let results = await Axios({
         url:
           DOMAIN +
-          `/api/QuanLyNguoiDung/TimKiemNguoiDung?MaNhom=GP01&tuKhoa=${valueSearch}`,
+          `/api/QuanLyNguoiDung/TimKiemNguoiDungPhanTrang?MaNhom=GP01&tuKhoa=${valueSearch}&soTrang=${page}&soPhanTuTrenTrang=${items}`,
         method: "GET",
       });
       dispatch({
         type: TIM_KIEM_NGUOI_DUNG,
         data: results.data,
       });
-    } catch (err) {}
+    } catch (err) {
+      console.log(err.response);
+    }
   };
 };
 

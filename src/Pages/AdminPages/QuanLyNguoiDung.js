@@ -5,6 +5,7 @@ import {
   layDanhSachNguoiDungPhanTrangApi,
   suaThongTinUserAction,
   timKiemNguoiDungAction,
+  timKiemNguoiDungPhanTrangAPiAction,
 } from "../../Redux/Action/QuanLyNguoiDungAction";
 import { Pagination } from "antd";
 import Swal from "sweetalert2";
@@ -17,6 +18,7 @@ import { BsFillTrashFill } from "react-icons/bs";
 export default function QuanLyNguoiDung() {
   const [page, setPage] = useState();
   const [showList, setShowList] = useState();
+  const [search , setSearch] = useState("");
   const [modal, setModal] = useState();
   const { danhSachNguoiDungPhanTrang } = useSelector(
     (state) => state.QuanLyNguoiDungReducer
@@ -32,13 +34,20 @@ export default function QuanLyNguoiDung() {
     async function fetchData() {
       dispatch(await layDanhSachNguoiDungPhanTrangApi(page?.page, page?.items));
     }
-    fetchData();
-  }, [page]);
+    async function fetchData2() {
+      dispatch(await timKiemNguoiDungPhanTrangAPiAction(search,page?.page, page?.items));
+    }
+    if(search){
+      fetchData2()
+    }else{
+      fetchData();
+    }
+  }, [page,search]);
   useEffect(() => {
-    if (danhSachNguoiDungTimKiem.length) {
+    if (search) {
       setShowList(danhSachNguoiDungTimKiem);
     } else {
-      setShowList(danhSachNguoiDungPhanTrang.items);
+      setShowList(danhSachNguoiDungPhanTrang);
     }
   }, [danhSachNguoiDungTimKiem, danhSachNguoiDungPhanTrang]);
   const xoaNguoiDung = (taiKhoan, page, items) => {
@@ -73,10 +82,69 @@ export default function QuanLyNguoiDung() {
   const handleSearch = (e) => {
     let { value } = e.target;
     if (!value) {
-      value = undefined;
+      return;
     }
-    dispatch(timKiemNguoiDungAction(value));
+    setSearch(value);
+    setPage({page:1,items:10});
   };
+  const renderThongTinTaiKhoan = () => {
+    return showList?.items?.map((nguoiDung, index) => {
+      return (
+        <tr key={index}>
+          <td>
+            {(showList.currentPage - 1) * 10 +
+              (index + 1)}
+          </td>
+          <td className="text-nowrap">{nguoiDung.taiKhoan}</td>
+          <td>{nguoiDung.matKhau}</td>
+          <td>{nguoiDung.hoTen}</td>
+          <td>{nguoiDung.email}</td>
+          <td className="text-nowrap">{nguoiDung.soDt}</td>
+          <td className="d-flex">
+            <button
+              className="btn text-nowrap btn-primary mr-1 p-0"
+              data-toggle="modal"
+              data-target="#modelId"
+              onClick={() => {
+                setModal({
+                  title: `Sửa thông tin tài khoản ${nguoiDung.taiKhoan}`,
+                  Component: (
+                    <FormValidate
+                      user={nguoiDung}
+                      titleBtn={"Cập nhập"}
+                      handleSubmit={suaThongTinUser}
+                    />
+                  ),
+                });
+              }}
+            >
+              <div
+                className="p-2"
+                data-toggle="tooltip"
+                title="Sửa thông tin người dùng"
+              >
+                <GiAutoRepair />
+              </div>
+            </button>
+            <button
+              className="btn text-nowrap btn-danger mr-1 p-0"
+              onClick={() =>
+                xoaNguoiDung(nguoiDung.taiKhoan, page?.page, page?.items)
+              }
+            >
+              <div
+                className="p-2"
+                data-toggle="tooltip"
+                title="Xóa người dùng"
+              >
+                <BsFillTrashFill />
+              </div>
+            </button>
+          </td>
+        </tr>
+      );
+    })
+  }
   return (
     <div className="container">
       <FormSearch placeholder={"Nhập từ khóa"} handleSubmit={handleSearch} />
@@ -93,68 +161,14 @@ export default function QuanLyNguoiDung() {
           </tr>
         </thead>
         <tbody>
-          {showList?.map((nguoiDung, index) => {
-            return (
-              <tr key={index}>
-                <td>
-                  {(danhSachNguoiDungPhanTrang.currentPage - 1) * 10 +
-                    (index + 1)}
-                </td>
-                <td className="text-nowrap">{nguoiDung.taiKhoan}</td>
-                <td>{nguoiDung.matKhau}</td>
-                <td>{nguoiDung.hoTen}</td>
-                <td>{nguoiDung.email}</td>
-                <td className="text-nowrap">{nguoiDung.soDt}</td>
-                <td className="d-flex">
-                  <button
-                    className="btn text-nowrap btn-primary mr-1 p-0"
-                    data-toggle="modal"
-                    data-target="#modelId"
-                    onClick={() => {
-                      setModal({
-                        title: `Sửa thông tin tài khoản ${nguoiDung.taiKhoan}`,
-                        Component: (
-                          <FormValidate
-                            user={nguoiDung}
-                            titleBtn={"Cập nhập"}
-                            handleSubmit={suaThongTinUser}
-                          />
-                        ),
-                      });
-                    }}
-                  >
-                    <div
-                      className="p-2"
-                      data-toggle="tooltip"
-                      title="Sửa thông tin người dùng"
-                    >
-                      <GiAutoRepair />
-                    </div>
-                  </button>
-                  <button
-                    className="btn text-nowrap btn-danger mr-1 p-0"
-                    onClick={() =>
-                      xoaNguoiDung(nguoiDung.taiKhoan, page?.page, page?.items)
-                    }
-                  >
-                    <div
-                      className="p-2"
-                      data-toggle="tooltip"
-                      title="Xóa người dùng"
-                    >
-                      <BsFillTrashFill />
-                    </div>
-                  </button>
-                </td>
-              </tr>
-            );
-          })}
+          {renderThongTinTaiKhoan()}
         </tbody>
       </table>
       <div className="text-center">
         <Pagination
           defaultCurrent={1}
-          total={danhSachNguoiDungPhanTrang.totalCount}
+          current={page?.page}
+          total={showList?.totalCount}
           onChange={(current, showLessItems) => {
             setPage({ page: current, items: showLessItems });
           }}

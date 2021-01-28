@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AACI,aADS,CACT,eAAe,CAAA,AAAA,IAAC,CAAK,OAAO,AAAZ,EAAa;EACzB,OAAO,EAAE,IAAI;CAChB;;AAHL,AAII,aAJS,CAIT,SAAS,CAAA;EACL,iBAAiB,EAAC,SAAS;EAC3B,KAAK,EAAC,IAAI;EACV,MAAM,EAAC,IAAI;CACd",
+    "sources": [
+        "DanhGiaPhimVsComment.scss"
+    ],
+    "names": [],
+    "file": "DanhGiaPhimVsComment.css"
+}

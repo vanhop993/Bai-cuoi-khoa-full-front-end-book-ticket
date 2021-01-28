@@ -1,0 +1,10 @@
+.starTinhDiem .starRadioInput[type="radio"] {
+  display: none;
+}
+
+.starTinhDiem .starItem {
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 40px;
+}
+/*# sourceMappingURL=DanhGiaPhimVsComment.css.map */

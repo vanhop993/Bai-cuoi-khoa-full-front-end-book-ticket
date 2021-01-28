@@ -103,7 +103,8 @@ export default function TrangChuCarouselMenu({ dsPhim }) {
       (item) =>
         item.ngayChieuGioChieu === luaChon.ngayChieu + "T" + luaChon.gioChieu
     );
-    history.push(`chitietphongve/${itemCanTim.maLichChieu}`);
+    // history.push(`chitietphongve/${itemCanTim.maLichChieu}`);
+    window.open(`chitietphongve/${itemCanTim.maLichChieu}`, "_blank");
   };
   return (
     <>

@@ -46,6 +46,7 @@ export default function ItemThongTinPhimMenu({
           <NavLink
             to={path + lichChieuPhimItem.maLichChieu}
             className="mr-3 my-3"
+            target="_blank"
             key={index}
           >
             <span className="gioChieu text-success">

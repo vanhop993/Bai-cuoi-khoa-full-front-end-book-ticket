@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import HelmetComponent from "../Components/HelmetComponent";
 import ChiTietCunRapDanhGia from "../Container/ChiTietCumRapDanhGia";
 import ChiTietCumRapThongTinRap from "../Container/ChiTietCumRapThongTinRap";
 import { displayLoading } from "../Redux/Action/LoadingAction";
@@ -16,8 +17,21 @@ export default function ChiTietCumRap(props) {
     }
     fetchData();
   }, []);
+  const { lichChieuHeThongRap } = useSelector(
+    (state) => state.QuanLyPhimReducer
+  );
+  const thongTinRap = () => {
+    let heThongRap = lichChieuHeThongRap.find(
+      (item) => item.maHeThongRap === maHeThongRap
+    );
+    let cumRap = heThongRap?.lstCumRap.find(
+      (item) => item.maCumRap === maCumRap
+    );
+    return cumRap?.tenCumRap;
+  };
   return (
     <>
+      <HelmetComponent title={thongTinRap()} description={thongTinRap()} />
       <ChiTietCumRapThongTinRap
         maCumRap={maCumRap}
         maHeThongRap={maHeThongRap}

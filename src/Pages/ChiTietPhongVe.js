@@ -3,9 +3,10 @@ import {
   layDanhSachPhongVeAction,
   layThongTinLichChieuHeThongRapApiAction,
 } from "../Redux/Action/QuanLyPhimAction";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import DatVe from "../Container/ChiTietPhongVe";
 import { displayLoading } from "../Redux/Action/LoadingAction";
+import HelmetComponent from "../Components/HelmetComponent";
 
 export default function ChiTietPhongVe(props) {
   let maLichChieu = props.match.params.malichchieu;
@@ -18,6 +19,14 @@ export default function ChiTietPhongVe(props) {
     }
     fetchData();
   }, []);
-
-  return <DatVe maLichChieu={maLichChieu} />;
+  const { danhSachPhongVe } = useSelector((state) => state.QuanLyPhimReducer);
+  return (
+    <>
+      <HelmetComponent
+        title={danhSachPhongVe.thongTinPhim?.tenPhim}
+        description={danhSachPhongVe.thongTinPhim?.tenPhim}
+      />
+      <DatVe maLichChieu={maLichChieu} />
+    </>
+  );
 }
